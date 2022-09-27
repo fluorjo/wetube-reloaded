@@ -1,0 +1,22 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "The best way to watch a videos",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluorjo/wetube-reloaded.git"
+  },
+  "author": "fluorjo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fluorjo/wetube-reloaded/issues"
+  },
+  "homepage": "https://github.com/fluorjo/wetube-reloaded#readme",
+  "scripts": {
+    "win": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
