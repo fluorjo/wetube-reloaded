@@ -22,4 +22,8 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
 
   }
 
-  이런 식으로 넣은 다음, npm run win 같이 실행시켜주면 index.js가 실행됨. 
+  이런 식으로 넣은 다음, npm run win 같이 실행시켜주면 index.js가 실행됨.
+
+- npm install 혹은 npm i 다음 express 같은 패키지 이름 넣어서 실행시키면 패키지 설치.
+
+- package.json 안에 dependencies: 패키지가 작동되기 위해 필요한 패키지들. express 설치시 다 같이 깔림,
