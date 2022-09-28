@@ -14,9 +14,15 @@
   },
   "homepage": "https://github.com/fluorjo/wetube-reloaded#readme",
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
+    "nodemon": "^2.0.20"
   }
 }

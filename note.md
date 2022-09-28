@@ -26,4 +26,8 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
 
 - npm install 혹은 npm i 다음 express 같은 패키지 이름 넣어서 실행시키면 패키지 설치.
 
-- package.json 안에 dependencies: 패키지가 작동되기 위해 필요한 패키지들. express 설치시 다 같이 깔림,
+- package.json 안에 dependencies: 패키지가 작동되기 위해 필요한 패키지들. express 설치시 다 같이 깔림
+
+2.2.
+
+- 그리고 npm install (npm i)만 하면 npm이 package.json 안에 dependencies에 있는 것들을 알아서 설치해줌. 
