@@ -30,4 +30,36 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
 
 2.2.
 
-- 그리고 npm install (npm i)만 하면 npm이 package.json 안에 dependencies에 있는 것들을 알아서 설치해줌. 
+- 그리고 npm install (npm i)만 하면 npm이 package.json 안에 dependencies에 있는 것들을 알아서 설치해줌.  따라서 팀 작업이나 배포 공유 등 할 때 모듈까지 다 공유할 필요가 없음. 
+- 그러므로 .gitignore 만들고 /node_modules 추가해서 깃허브에 안 올라가게 하면 됨. 
+- package-lock.json은 패키지들을 안전하게 관리해줌.  배포시 똑같은 버전의 모듈을 설치하게 해주는 기능도 있음. 
+
+2.3.
+
+- https://babeljs.io/ - 자바스크립트 컴파일러.  nodejs가 이해하지 못하는 최신 자바스크립트를 컴파일해준다. 
+
+- devDependencies=개발자에게 필요한 dependencies. 그냥 dependencies는 프로젝트를 실행할 때 필요한 거고. 
+
+  devDependencies에 저장하려면 npm install --save-dev 모듈명 입력.
+
+  잘못 설치했어도 json파일에서 옮겨주면 됨.  
+
+-   "presets": ["@babel/preset-env"] babel을 위한 거대한 플러그인.  최신 자바스크립트 구문 사용하게 해주는 것. 여러 preset 중에 가장 유명한 게 env.
+
+2.4.
+
+-  "scripts": {
+
+    "dev": "babel-node index.js"}
+
+  이렇게 package.json 수정해주면 babel을 node랑 같이 사용하게 된다. 
+
+- nodemon 파일이 수정되는 걸 감시해주는 패키지. 파일 수정될 때마다 알아서 얘가 재시작을 해줌. 일일이 npm run dev 안 쳐도 되게 하는 것.  코드 실행해도 콘솔이 종료되지 않는다.
+
+  nodemon 깔고 나면  "scripts": {
+
+    "dev": "nodemon --exec babel-node index.js"
+
+   } 
+
+  이렇게 수정.
