@@ -6,20 +6,19 @@
 
 --------------------------------
 
-/edit-user ->edit user
-/delete-user -> delete user
-/watch-video ->watch-video 
-/edit-video ->edit-video 
-/delete-video -> delete video
-
 -----------------------------
 #유저 라우터
-/users/edit ->edit user
-/users/delete -> delete user
+/users/:id ->watch-my profile 
+/users/edit ->edit-my profile 
+/users/delete -> delete my profile
+
+
 
 #비디오 라우터
-/videos/watch ->watch-video 
-/videos/edit ->edit-video 
-/videos/delete -> delete video
+
+/videos/:id ->watch-video 
+/videos/:id/edit ->edit-video 
+/videos/:id/delete -> delete video
+/videos/upload -> upload video
 /videos/comments -> comment on a video
 /videos/comments/delete ->delete a comment of a video
