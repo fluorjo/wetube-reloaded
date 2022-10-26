@@ -6,16 +6,6 @@ html(lang="ko")
 
     body 
         header 
-            if fakeUser.loggedIn
-                small Hello #{fakeUser.username}
-            nav 
-                ul 
-                    if fakeUser.loggedIn
-                        li 
-                            a(href="/logout") Log out
-                    else
-                        li 
-                            a(href="/login") Login
 
             h1=pageTitle
             //-#{pageTitle} 이렇게 써줘도 됨. 단지 지금 이 h1에서는  다른 텍스트는 같이 안 쓸 거니 변수만 가져온 것. 등호 붙여야 하는 거 주의.
