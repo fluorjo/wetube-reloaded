@@ -85,3 +85,8 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
 
   a(*href*="edit")
   이렇게 하면 http://localhost:4000/videos/edit 으로 감.(상대경로)
+
+6.3.
+
+- app.use(express.urlencoded)
+  =html을 이해할 수 있게 해줌.

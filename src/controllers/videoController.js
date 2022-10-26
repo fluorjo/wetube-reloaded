@@ -37,10 +37,27 @@ export const  watch = (req,res)=>{
     //params는 video router에서 받아옴
     const video = videos[id-1];
     
-    return res.render("watch",{pageTitle: `Watching ${video.title}`, video});
+    return res.render("watch",{pageTitle: `Watching: ${video.title}`, video});
 };
-export const  edit = (req,res)=>res.render("edit");
-export const  search = (req,res)=>res.send("search");
-export const  upload = (req,res)=>res.send("upload");
-export const  deleteVideo = (req,res)=>res.send("deleteVideo");
+export const getEdit = (req,res)=>{
+    const { id } = req.params;
+    const video = videos[id-1];
+    return res.render("edit",{pageTitle:`Editing: ${video.title}`,video});
+};
+export const postEdit = (req,res)=>{
+    const { id } = req.params;
+    const { title } = req.body;
+    //const title = req.body.title;
+    videos[id - 1].title = title;
 
+    return res.redirect(`/videos/${id}`);
+};
+
+export const getUpload = (req, res)=>{
+    return res.render("upload",{pageTitle:"Upload video"});
+};
+export const postUpload = (req, res)=>{
+    //여기서 비디오를 array에 추가할 예정
+    return res.redirect("/");
+};
+ 

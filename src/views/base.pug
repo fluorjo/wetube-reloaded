@@ -9,6 +9,10 @@ html(lang="ko")
 
             h1=pageTitle
             //-#{pageTitle} 이렇게 써줘도 됨. 단지 지금 이 h1에서는  다른 텍스트는 같이 안 쓸 거니 변수만 가져온 것. 등호 붙여야 하는 거 주의.
+            nav 
+                ul 
+                    li 
+                        a(href="/videos/upload") Upload Video
         main
             block content
     include partials/footer.pug
