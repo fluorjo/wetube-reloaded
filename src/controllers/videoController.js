@@ -45,19 +45,19 @@ export const getUpload = (req, res)=>{
 export const postUpload = async(req, res)=>{
     //여기서 비디오를 array에 추가할 예정
     const {title, description, hashtags} = req.body;
-    await Video.create({
-        title,
-        //title:title이라고 써도 됨. 왼쪽은 schema, 오른쪽은 body의 title.
-        description,
-        createdAt:Date.now(),
-        hashtags:hashtags.split(",").map((word)=>`#${word}`),
-        meta:{
-            views:0,
-            rating:0,
-        },
+    try{
+        await Video.create({
+            title,
+            //title:title이라고 써도 됨. 왼쪽은 schema, 오른쪽은 body의 title.
+            description,
+            hashtags:hashtags.split(",").map((word)=>`#${word}`),
+
+        });
+        return res.redirect("/");
+    } catch(error){
+        return res.render("upload",{pageTitle:"Upload video",errorMessage: error._message,
     });
-    
+    }
     //promise:저장될 때까지 기다린다. 
-    return res.redirect("/");
 };
  

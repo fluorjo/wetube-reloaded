@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
-    title: String, 
+    title: {type:String, required:true},
     //{type:String}이라고 해도 됨.
-    description: String,
-    createdAt: Date,
+    description: {type:String, required:true},
+    createdAt: {type:Date, required:true,default:Date.now},
     hashtags:[{ type: String}],
     //배열로 만든 것.
     meta:{
-        views:Number,
-        rating:Number,
+        views:{type:Number, default:0, required:true},
+        rating:{type:Number, default:0, required:true},
     },
 });
 
