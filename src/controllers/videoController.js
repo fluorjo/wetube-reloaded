@@ -1,10 +1,10 @@
+import Video from "../models/Video";
 //const fakeUser = {username:"j",loggedIn:false,};
-import Video from "../models/video"
 
 export const  home = (req,res)=>{
-    Video.find({}, (error,videos)=> {});
-    //{}=search term. 이게 비어있으면 모든 형식을 찾는다는 뜻.
-    return res.render("home",{pageTitle:"Home"});
+    Video.find({}, (error,videos)=> {
+        return res.render("home",{pageTitle:"Home", videos});
+    });
 };
 export const  watch = (req,res)=>{
     const { id } = req.params;
