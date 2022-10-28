@@ -42,10 +42,10 @@ export const postEdit = (req,res)=>{
 export const getUpload = (req, res)=>{
     return res.render("upload",{pageTitle:"Upload video"});
 };
-export const postUpload = (req, res)=>{
+export const postUpload = async(req, res)=>{
     //여기서 비디오를 array에 추가할 예정
     const {title, description, hashtags} = req.body;
-    const video = new Video({
+    await Video.create({
         title,
         //title:title이라고 써도 됨. 왼쪽은 schema, 오른쪽은 body의 title.
         description,
@@ -55,9 +55,9 @@ export const postUpload = (req, res)=>{
             views:0,
             rating:0,
         },
-        
     });
-    console.log(video);
+    
+    //promise:저장될 때까지 기다린다. 
     return res.redirect("/");
 };
  
