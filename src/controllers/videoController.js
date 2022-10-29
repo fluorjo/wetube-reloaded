@@ -40,10 +40,20 @@ export const getEdit = async(req,res)=>{
 };
 
 
-export const postEdit = (req,res)=>{
+export const postEdit = async(req,res)=>{
     const { id } = req.params;
-    const { title } = req.body;
-    //const title = req.body.title;
+    const {title, description, hashtags}=req.body;
+    const video = await Video.findById(id);
+    if(!video){
+        return res.render("404",{pageTitle:"Video not Found"});   
+    }
+    video.title=title;
+    video.description=description;
+    video.hashtags=hashtags
+        .split(",")
+        .map((word)=>word.startsWith('#') ? word : `#${word}`),
+    await video.save();
+
     return res.redirect(`/videos/${id}`);
 };
 
@@ -51,14 +61,15 @@ export const getUpload = (req, res)=>{
     return res.render("upload",{pageTitle:"Upload video"});
 };
 export const postUpload = async(req, res)=>{
-    //여기서 비디오를 array에 추가할 예정
+
     const {title, description, hashtags} = req.body;
     try{
         await Video.create({
             title,
-            //title:title이라고 써도 됨. 왼쪽은 schema, 오른쪽은 body의 title.
             description,
-            hashtags:hashtags.split(",").map((word)=>`#${word}`),
+            hashtags:hashtags
+                .split(",")
+                .map((word)=>word.startsWith('#') ? word : `#${word}`),
 
         });
         return res.redirect("/");
