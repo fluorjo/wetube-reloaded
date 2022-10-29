@@ -19,13 +19,13 @@ export const  home = async(req,res)=>{
         const  videos = await Video.find({});
         return res.render("home",{pageTitle:"Home", videos});
 };
-export const  watch = (req,res)=>{
+export const  watch = async(req,res)=>{
     const { id } = req.params;
+    const video = await Video.findById(id);
     //const id = req.params.id;
     //params는 video router에서 받아옴
 
-    
-    return res.render("watch",{pageTitle: `Watching`});
+    return res.render("watch",{ pageTitle: video.title, video:video });
 };
 export const getEdit = (req,res)=>{
     const { id } = req.params;
