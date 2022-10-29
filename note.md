@@ -108,3 +108,13 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
   \> mongo
   \> use wetube
   \> db.videos.remove({})
+
+- videoSchema.pre("save", async function () {
+
+    *this*.hashtags = *this*.hashtags[0]
+
+     .split(",")
+
+     .map((word) => (word.startsWith("#") ? word : `#${word}`));
+
+   });*//start's' <-s 주의*

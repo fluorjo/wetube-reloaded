@@ -52,9 +52,7 @@ export const postEdit = async(req,res)=>{
         //여기 'V'ideo는 우리의 영상 모델.
         title,
         description,
-        hashtags: hashtags
-            .split(",")
-            .map((word)=>(word.startsWith('#') ? word : `#${word}`)),
+        hashtags: Video.formatHashtags(hashtags),
     });
 
 
@@ -71,8 +69,8 @@ export const postUpload = async(req, res)=>{
         await Video.create({
             title,
             description,
-            hashtags,
-        });
+            hashtags: Video.formatHashtags(hashtags),
+    });
         return res.redirect("/");
     } catch(error){
         return res.render("upload",{pageTitle:"Upload video",errorMessage: error._message,
