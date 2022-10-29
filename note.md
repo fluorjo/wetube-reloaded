@@ -99,3 +99,12 @@ npm=자바스크립트 패키지 매니저다 = 자바스크립트랑 같이 써
 
 - 주소 형식에 맞췄는데 그 주소에 비디오가 없으면 404로 진입. 
   주소 형식 자체가 안 맞으면 cannot get으로 감. 
+
+6.23.
+
+- windows 에서 db.video.remove({}) 작동 안하는 분들은 use dbName 해주세요!
+
+  [cmd]
+  \> mongo
+  \> use wetube
+  \> db.videos.remove({})
