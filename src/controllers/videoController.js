@@ -1,22 +1,7 @@
 import Video from "../models/Video";
-//const fakeUser = {username:"j",loggedIn:false,};
-
-/*
-        const  videos = await Video.find({});
-        return res.render("home",{pageTitle:"Home", videos});
-*/
-/*
-Video.find({}, (error,videos)=> {
-    if(error){
-        return res.render("server-error");
-    }
-    return res.render("home",{pageTitle:"Home", videos});
-});
-*/
-
 
 export const  home = async(req,res)=>{
-        const  videos = await Video.find({});
+        const  videos = await Video.find({}).sort({createdAt:"asc"});
         return res.render("home",{pageTitle:"Home", videos});
 };
 export const  watch = async(req,res)=>{
@@ -86,3 +71,11 @@ export const deleteVideo = async(req,res)=>{
     console.log(id);
     return res.redirect("/");
 };
+export const search = (req,res)=>{
+    const {keyword} = req.query;
+    if(keyword){
+        
+    }
+    return res.render("search",{pageTitle:"Search"});
+};
+
