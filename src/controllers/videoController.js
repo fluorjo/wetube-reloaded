@@ -71,11 +71,17 @@ export const deleteVideo = async(req,res)=>{
     console.log(id);
     return res.redirect("/");
 };
-export const search = (req,res)=>{
+export const search = async(req,res)=>{
     const {keyword} = req.query;
+    let videos =[];
     if(keyword){
-        
-    }
-    return res.render("search",{pageTitle:"Search"});
+        videos = await Video.find({
+            title: {
+                $regex: new RegExp(keyword, "i"),
+                //"i" 대소문자 구분 없애기
+            }
+        });
+    } 
+    return res.render("search",{pageTitle:"Search", videos});
 };
 
