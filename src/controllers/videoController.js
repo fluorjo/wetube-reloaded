@@ -79,3 +79,10 @@ export const postUpload = async(req, res)=>{
     //promise:저장될 때까지 기다린다. 
 };
  
+export const deleteVideo = async(req,res)=>{
+    const {id} = req.params;
+    await Video.findByIdAndDelete(id);
+    //remove도 있는데 쓰지 말고 delete로 할 것. remove를 쓰면 되돌릴 수가 없다(?)
+    console.log(id);
+    return res.redirect("/");
+};
