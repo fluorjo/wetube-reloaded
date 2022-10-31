@@ -4,6 +4,8 @@ import session from "express-session";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
+import { localsMiddleware } from "./middlewares";
+import MongoStore from "connect-mongo";
 
 
 
@@ -17,18 +19,20 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(
-    session({ 
-    secret:"hello",
-    resave:true,
-    saveUninitialized:true,
+    session({
+    secret:process.env.COOKIE_SECRET,
+    resave:false,
+    saveUninitialized:false,,
+    //세션이 만들어지고 수정(초기화)된 적이 없다.
+
+    /*cookie:{
+        maxAge:5000,
+    },*/
+    store:MongoStore.create({mongoUrl:process.env.DB_URL}),
     })
 );
 
-app.get("/add-one",(req, res, next) => {
-    req.session.a +=1;
-    return res.send(`${req.session.id}\n${req.session.a}`);
-})
-
+app.use(localsMiddleware);
 app.use("/",rootRouter);
 app.use("/videos",videoRouter);
 app.use("/users",userRouter);
