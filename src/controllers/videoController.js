@@ -8,8 +8,7 @@ export const  watch = async(req,res)=>{
     const { id } = req.params;
     const video = await Video.findById(id);
     if(!video){
-        //video===null
-        return res.render("404",{pageTitle:"Video not Found"});   
+        return res.status(404).render("404",{pageTitle:"Video not Found"});   
     }
     return res.render("watch",{ pageTitle: video.title, video
     });
@@ -19,7 +18,7 @@ export const getEdit = async(req,res)=>{
     const video = await Video.findById(id);
     if(!video){
         //video===null
-        return res.render("404",{pageTitle:"Video not Found"});   
+        return res.status(404).render("404",{pageTitle:"Video not Found"});   
     }
     return res.render("edit",{pageTitle:`Edit ${video.title}`,video});
 };
@@ -58,7 +57,7 @@ export const postUpload = async(req, res)=>{
     });
         return res.redirect("/");
     } catch(error){
-        return res.render("upload",{pageTitle:"Upload video",errorMessage: error._message,
+        return res.status(400).render("upload",{pageTitle:"Upload video",errorMessage: error._message,
     });
     }
     //promise:저장될 때까지 기다린다. 
