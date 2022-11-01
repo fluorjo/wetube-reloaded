@@ -22,7 +22,7 @@ app.use(
     session({
     secret:process.env.COOKIE_SECRET,
     resave:false,
-    saveUninitialized:false,,
+    saveUninitialized:false,
     //세션이 만들어지고 수정(초기화)된 적이 없다.
 
     /*cookie:{
