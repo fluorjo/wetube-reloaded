@@ -1,3 +1,4 @@
+
 #글로벌 라우터
 / -> home
 /join -> join
