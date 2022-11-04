@@ -71,7 +71,7 @@ const baseUrl = 'https://github.com/login/oauth/authorize';
  const config ={
     client_id:process.env.GH_CLIENT,
     allow_signup:false,
-    scope:"read:user user:email"
+    scope:"read:user user:email",
  };
  const params = new URLSearchParams(config).toString();
  const finalUrl = `${baseUrl}?${params}`;   
@@ -101,15 +101,28 @@ export const finishGithubLogin = async(req,res)=>{
     if('access_token' in tokenRequest){
         //access api
         const {access_token}=tokenRequest ;
-        const userRequest = await(await fetch("https://api.github.com/user",{
+        const apiUrl = "https://api.github.com/";
+        const userData = await(await fetch(`${apiUrl}/user`,{
             headers:{
                 Authorization:`token ${access_token}`
             },
         })).json();
-        console.log(userRequest);
+        console.log(userData);
+
+        const emailData = await(
+            await fetch(`${apiUrl}/user/emails`,{
+            headers:{
+                Authorization:`token ${access_token}`,
+            },
+        })
+        ).json();
+        
+        console.log(emailData);
+        console.log(finalUrl);
+
     }else{
         return res.redirect('/login');
-    }
+    };
 };
 export const  edit = (req,res)=>res.send("edit user");
 export const  remove = (req,res)=>res.send("remove user");
