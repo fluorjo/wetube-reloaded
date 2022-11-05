@@ -86,11 +86,11 @@ export const finishGithubLogin = async(req,res)=>{
         client_secret:process.env.GH_SECRET,
         code:req.query.code,
     };
-    console.log('config',config);
+    //console.log('config',config);
     const params = new URLSearchParams(config).toString();
-    console.log('params',params);
+    //console.log('params',params);
     const finalUrl = `${baseUrl}?${params}`;   
-    console.log('finalurl',finalUrl);
+    //console.log('finalurl',finalUrl);
     const tokenRequest = await (
         await fetch(finalUrl, {
           method: "POST",
@@ -99,7 +99,7 @@ export const finishGithubLogin = async(req,res)=>{
           },
         })
       ).json();
-    console.log('tokenrequest',tokenRequest);
+    //console.log('tokenrequest',tokenRequest);
 
     if('access_token' in tokenRequest){
         const {access_token}=tokenRequest ;
@@ -158,14 +158,17 @@ export const getEdit= (req,res)=>{
 export const postEdit= async(req,res)=>{
   const {
     session: {
-      user:{_id},
+      user:{_id,avatarUrl},
     }, 
-    body:{name, email, username, location},
+    body:{name, email, username, location}, 
+    file,
   }= req;
+  //console.log("path:", path);
   //const id = req.session.user.id
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path :avatarUrl,
       name,
       email,
       username,
@@ -183,8 +186,29 @@ export const getChangePassword = (req,res)=>{
   }
   return res.render("users/change-password",{pageTitle:"Change Password"});
 };
-export const postChangePassword = (req,res)=>{  
-  return res.redirect("/");
+export const postChangePassword = async(req,res)=>{  
+  const {
+    session: {
+      user:{_id},
+    }, 
+    body:{oldPassword,newPassword, newPasswordConfirmation,},
+  }= req;
+  const user = await User.findById(_id);
+  const ok = await bcrypt.compare(oldPassword,user.password);
+  if (!ok){
+    return res.status(400).render("users/change-password",{pageTitle:"Change Password",errorMessage:"The current password is incorrect."});
+  }
+  if(newPassword!==newPasswordConfirmation){
+    return res.status(400).render("users/change-password",{pageTitle:"Change Password",errorMessage:"The password does not match the confirmation."});
+  }
+  console.log('old',user.password);
+  user.password=newPassword;
+  console.log('new unhashed', user.password);
+  await user.save();
+  console.log('new',user.password);
+  return res.redirect("/users/logout");
+  //비번 바꾸면 로그아웃.
+  //return res.redirect("/");
 };
 
 export const  see = (req,res)=>res.send("see");
