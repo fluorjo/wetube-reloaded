@@ -16,11 +16,15 @@ if ("access_token" in tokenRequest) {
         },
       })
     ).json();
-    const email = emailData.find(
+    const emailObj = emailData.find(
       (email) => email.primary === true && email.verified === true
     );
-    if (!email) {
+    if (!emailObj) {
       return res.redirect("/login");
+    }
+    const existingUser = await userData.findOne({email: emailObj.email});
+    if(existingUser){
+      
     }
   } else {
     return res.redirect("/login");
