@@ -91,14 +91,14 @@ export const finishGithubLogin = async(req,res)=>{
     console.log('params',params);
     const finalUrl = `${baseUrl}?${params}`;   
     console.log('finalurl',finalUrl);
-    const tokenRequest =await (
-        await fetch(finalUrl,{
-        method:"POST",
-        headers:{
+    const tokenRequest = await (
+        await fetch(finalUrl, {
+          method: "POST",
+          headers: {
             Accept: "application/json",
-        }, 
-    })
-    ).json();
+          },
+        })
+      ).json();
     console.log('tokenrequest',tokenRequest);
 
     if('access_token' in tokenRequest){
@@ -114,21 +114,23 @@ export const finishGithubLogin = async(req,res)=>{
 
         console.log('user data:',userData);
 
-        const emailData = await(
-            await fetch(`${apiUrl}/user/emails`,{
-            headers:{
-                Authorization:`token ${access_token}`,
-            },
-        })
-        ).json();
-        
-        console.log('email data',emailData);
-        console.log(finalUrl);
-
-    }else{
-        return res.redirect('/login');
-    };
-};
+        const emailData = await (
+            await fetch(`${apiUrl}/user/emails`, {
+              headers: {
+                Authorization: `token ${access_token}`,
+              },
+            })
+          ).json();
+        const email = emailData.find(
+            (email) => email.primary === true && email.verified === true
+          );
+          if (!email) {
+            return res.redirect("/login");
+          }
+        } else {
+          return res.redirect("/login");
+        }
+        };
 export const  edit = (req,res)=>res.send("edit user");
 export const  remove = (req,res)=>res.send("remove user");
 export const  logout = (req,res)=>res.send("logout");
