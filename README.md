@@ -1,25 +1,4 @@
-
-#글로벌 라우터
-/ -> home
-/join -> join
-/login -> login
-/search -> search
-
---------------------------------
-
------------------------------
-#유저 라우터
-/users/:id ->watch-my profile 
-/users/edit ->edit-my profile 
-/users/delete -> delete my profile
+챌린지  
 
 
-
-#비디오 라우터
-
-/videos/:id ->watch-video 
-/videos/:id/edit ->edit-video 
-/videos/:id/delete -> delete video
-/videos/upload -> upload video
-/videos/comments -> comment on a video
-/videos/comments/delete ->delete a comment of a video
+8.3. 프로필 수정 부분 - 중복된 사용자명이나 이메일 금지하게 하게끔 업데이트 챌린지.
