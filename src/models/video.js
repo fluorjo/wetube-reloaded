@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const videoSchema = new mongoose.Schema({
     title: {type:String, required:true, trim:true,maxLength:80},
+    fileUrl:{type:String,required:true}, 
     //{type:String}이라고 해도 됨.
     description: {type:String, required:true, trim:true,minLength:0},
     createdAt: {type:Date, required:true,default:Date.now},
@@ -10,6 +11,9 @@ const videoSchema = new mongoose.Schema({
     meta:{
         views:{type:Number, default:0, required:true},
         rating:{type:Number, default:0, required:true},
+    },
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,required:true,ref:"User"
     },
 });
 
