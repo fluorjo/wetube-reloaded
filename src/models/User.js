@@ -16,9 +16,10 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save',async function(){
-    console.log("user pw:", this.password);
-    this.password = await bcrypt.hash(this.password,5 );
-    console.log("hashed pw:", this.password);
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password,5 );
+
+    }
 
 })
 // 여기서 this는 user controller에서 만들어진 user를 말함. 
