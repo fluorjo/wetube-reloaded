@@ -65,14 +65,17 @@ export const postUpload = async(req, res)=>{
     const {
         user:{_id},
     } = req.session;
-    const {path:fileUrl} = req.file;
+    const {video, thumb} = req.files;
+
+
 
     const {title, description, hashtags} = req.body;
     try{
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl,
+            fileUrl:video[0].path,
+            thumbUrl: thumb[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
     });
@@ -95,11 +98,11 @@ export const deleteVideo = async(req,res)=>{
         return res.status(404).render("404", { pageTitle: "Video not found." });
       }
     if(String(video.owner) !== String(_id)){
+        req.flash("error","You are not the owner of the video");
         return res.status(403).redirect("/");
     }
     await Video.findByIdAndDelete(id);
     //remove도 있는데 쓰지 말고 delete로 할 것. remove를 쓰면 되돌릴 수가 없다(?)
-    console.log(id);
     return res.redirect("/");
 };
 export const search = async(req,res)=>{
