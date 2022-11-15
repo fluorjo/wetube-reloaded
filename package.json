@@ -1,6 +1,9 @@
 {
   "name": "wetube",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "The best way to watch a videos",
   "main": "index.js",
   "repository": {
