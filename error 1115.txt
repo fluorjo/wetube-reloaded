@@ -1,0 +1,14 @@
+
+2022-11-15T13:10:23.820776+00:00 app[web.1]: TypeError: Cannot read properties of null (reading 'name')     
+2022-11-15T13:10:23.820798+00:00 app[web.1]: at Object.pug_interp [as video] (eval at wrap (/app/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:9:629)       
+2022-11-15T13:10:23.820800+00:00 app[web.1]: at eval (eval at wrap (/app/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:54:20)
+2022-11-15T13:10:23.820800+00:00 app[web.1]: at eval (eval at wrap (/app/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:70:4)
+2022-11-15T13:10:23.820800+00:00 app[web.1]: at template (eval at wrap (/app/node_modules/pug-runtime/wrap.js:6:10), <anonymous>:73:7)
+2022-11-15T13:10:23.820802+00:00 app[web.1]: at Object.exports.renderFile (/app/node_modules/pug/lib/index.js:454:38)
+2022-11-15T13:10:23.820802+00:00 app[web.1]: at Object.exports.renderFile (/app/node_modules/pug/lib/index.js:444:21)
+2022-11-15T13:10:23.820803+00:00 app[web.1]: at View.exports.__express [as engine] (/app/node_modules/pug/lib/index.js:493:11)
+2022-11-15T13:10:23.820803+00:00 app[web.1]: at View.render (/app/node_modules/express/lib/view.js:135:8)   
+2022-11-15T13:10:23.820803+00:00 app[web.1]: at tryRender (/app/node_modules/express/lib/application.js:657:10)
+2022-11-15T13:10:23.820804+00:00 app[web.1]: at Function.render (/app/node_modules/express/lib/application.js:609:3)
+2022-11-15T13:10:24.000292+00:00 app[web.1]: GET / 500 735.555 ms - 148
+2022-11-15T13:10:23.993757+00:00 heroku[router]: at=info method=GET path="/" host=fluorwetube.herokuapp.com request_id=2221d0ea-d4ee-4829-8397-dfe0de6e6ecc fwd="1.224.141.78" dyno=web.1 connect=0ms service=920ms status=500 bytes=489 protocol=https
