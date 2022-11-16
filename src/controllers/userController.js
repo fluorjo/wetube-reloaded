@@ -16,7 +16,7 @@ export const  postJoin = async(req,res)=>{
         errorMessage:"Password confirmation does not match",
       });
     }
-    const exists = await User.exists({
+    const exists = await User.findOne({
         $or:[{username},{email}] });
     if(exists){
         return res.status(400).render("join",
