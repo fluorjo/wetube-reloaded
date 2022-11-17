@@ -26,8 +26,8 @@ export const getEdit = async(req,res)=>{
     const { id } = req.params;
     const {user:{_id}} =req.session;
 
-    const video = await Video.findById(id);
-    if(!video){
+    const videoId = await Video.findById(id);
+    if(!videoId){
         //video===null
         return res.status(404).render("404",{pageTitle:"Video not Found"});   
     }
@@ -79,7 +79,7 @@ export const postUpload = async(req, res)=>{
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl:isHeroku ? video[0].location : video[0].path,
+            fileUrl:isHeroku ? video[0].location.replace(/[\\]/g, "/") : video[0].path.path.replace(/[\\]/g, "/"),
             thumbUrl:isHeroku ? thumb[0].location.replace(/[\\]/g, "/") : thumb[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
