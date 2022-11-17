@@ -7,7 +7,7 @@ export const  home = async(req,res)=>{
             .sort({ createdAt: "desc" })
             .populate("owner");
         console.log('home',home);
-        console.log('home',videos);
+        console.log('videos',videos);
         return res.render("home",{pageTitle:"Home", videos});
 };
 
@@ -79,7 +79,7 @@ export const postUpload = async(req, res)=>{
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl:video[0].path,
+            fileUrl:video[0].path.replace(/[\\]/g, "/"),
             thumbUrl: thumb[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
