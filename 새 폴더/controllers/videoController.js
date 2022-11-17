@@ -6,8 +6,6 @@ export const  home = async(req,res)=>{
         const videos = await Video.find({})
             .sort({ createdAt: "desc" })
             .populate("owner");
-        console.log('home',home);
-        console.log('videos',videos);
         return res.render("home",{pageTitle:"Home", videos});
 };
 
@@ -79,8 +77,8 @@ export const postUpload = async(req, res)=>{
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl:isHeroku ? video[0].location : video[0].path,
-            thumbUrl:isHeroku ? thumb[0].location.replace(/[\\]/g, "/") : thumb[0].path.replace(/[\\]/g, "/"),
+            fileUrl:video[0].path,
+            thumbUrl: thumb[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
     });
