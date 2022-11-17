@@ -1,39 +1,35 @@
-//config
+// Config
 @import "./config/_variables.scss";
 @import "./config/_reset.scss";
 
-//components
+// Components
+
 @import "./components/header.scss";
 @import "./components/footer.scss";
 @import "./components/video.scss";
 @import "./components/shared.scss";
 @import "./components/forms.scss";
 @import "./components/social-login.scss";
-//screens
+@import "./components/video-player.scss";
+
+// Screens
+
 @import "./screens/search.scss";
 @import "./screens/profile.scss";
 @import "./screens/edit-profile.scss";
-//defaults
-@import "./components/video-player.scss";
 @import "./screens/upload.scss";
 @import "./screens/watch.scss";
-
-a{
-  color:inherit;
+// Defaults
+a {
+  color: inherit;
   text-decoration: none;
 }
-main {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 50px;
-}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: $bg;
-  color: white;
-
+  color: black;
 }
 
 main {
@@ -68,6 +64,6 @@ main {
   animation-delay: 5s;
   &.error {
     background-color: tomato;
-    color: white;
+    color: black;
   }
 }

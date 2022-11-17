@@ -26,8 +26,8 @@ export const getEdit = async(req,res)=>{
     const { id } = req.params;
     const {user:{_id}} =req.session;
 
-    const videoId = await Video.findById(id);
-    if(!videoId){
+    const video = await Video.findById(id);
+    if(!video){
         //video===null
         return res.status(404).render("404",{pageTitle:"Video not Found"});   
     }
@@ -72,14 +72,15 @@ export const postUpload = async(req, res)=>{
     } = req.session;
     const {video, thumb} = req.files;
 
-
-
     const {title, description, hashtags} = req.body;
+
+    const isHeroku=process.env.NODE_ENV==="production";
+
     try{
         const newVideo = await Video.create({
             title,
             description,
-            fileUrl:isHeroku ? video[0].location.replace(/[\\]/g, "/") : video[0].path.path.replace(/[\\]/g, "/"),
+            fileUrl:isHeroku ? video[0].location.replace(/[\\]/g, "/") : video[0].path.replace(/[\\]/g, "/"),
             thumbUrl:isHeroku ? thumb[0].location.replace(/[\\]/g, "/") : thumb[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
@@ -87,8 +88,10 @@ export const postUpload = async(req, res)=>{
     const user = await User.findById(_id);
     user.videos.push(newVideo._id);
     user.save();
+    console.log('vvv',newVideo);
         return res.redirect("/");
     } catch(error){
+        console.log(error);
         return res.status(400).render("upload",{pageTitle:"Upload video",errorMessage: error._message,
     });
     }
