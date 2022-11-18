@@ -22,8 +22,10 @@ video.volume = volumeValue;
 const handlePlayClick = (e) => {
   if (video.paused) {
     video.play();
+    console.log(video);
   } else {
     video.pause();
+    console.log(video);
   }
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 
@@ -159,7 +161,7 @@ fullScreenBtn.addEventListener("click", handleFullScreen);
 
 const handleVideoEnded = () => {
     video.currentTime = 0;
-    playBtn.innerText = "Play";
+    playBtnIcon.classList = "fas fa-play";
     };
     
     video.addEventListener("ended", handleVideoEnded);
