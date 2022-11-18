@@ -22,10 +22,8 @@ video.volume = volumeValue;
 const handlePlayClick = (e) => {
   if (video.paused) {
     video.play();
-    console.log(video);
   } else {
     video.pause();
-    console.log(video);
   }
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 
@@ -49,11 +47,11 @@ const handleInputVolumeRange = (event) => {
     } = event;
     if (video.muted) {
     video.muted = false;
-    muteBtn.innerText = "Mute";
+    muteBtnIcon.classList = "fas fa-volume-up";
     }
     if (value == 0) {
     video.muted = true;
-    muteBtn.innerText = "Unmute";
+    muteBtnIcon.classList = "fas fa-volume-mute";
     }
     video.volume = value;
     };
@@ -73,7 +71,6 @@ const handleLoadedMetadata = ()=>{
     timeline.max=Math.floor(video.duration);
 };
 const handleTimeUpdate = ()=>{
-    console.log("currentTime",currentTime);
     currentTime.innerText=formatTime(Math.floor(video.currentTime));
     timeline.value=Math.floor(video.currentTime);
 };
