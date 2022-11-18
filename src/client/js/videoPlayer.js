@@ -73,9 +73,9 @@ const handleLoadedMetadata = ()=>{
     timeline.max=Math.floor(video.duration);
 };
 const handleTimeUpdate = ()=>{
+    console.log("currentTime",currentTime);
     currentTime.innerText=formatTime(Math.floor(video.currentTime));
     timeline.value=Math.floor(video.currentTime);
-
 };
 
 let videoPlayStatus = false;
