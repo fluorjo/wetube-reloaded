@@ -56,7 +56,6 @@ const handleDownload = async () => {
     URL.revokeObjectURL(mp4Url);
     URL.revokeObjectURL(thumbUrl);
     URL.revokeObjectURL(videoFile);
-    console.log('rrrr',videoFile);
 
     actionBtn.disabled=false;
     actionBtn.innerText="Record Again";
@@ -64,26 +63,16 @@ const handleDownload = async () => {
 
 };
 
-const handleStop = () => {
-  recorder.stop();
-  actionBtn.innerText = "Start Recording";
-  actionBtn.removeEventListener("click", handleStop);
-  actionBtn.addEventListener("click", handleStart);
-};
+
 
 const handleStart = () => {
-  
-  actionBtn.innerText = "Stop Recording";
+  actionBtn.innerText = "Recording";
   actionBtn.disabled = true;
   actionBtn.removeEventListener("click", handleStart);
-  actionBtn.addEventListener("click", handleStop);
-
   recorder = new window.MediaRecorder(stream);
-  
+
   recorder.ondataavailable = (event) => {
-    console.log('videoFile1',videoFile);
     videoFile = URL.createObjectURL(event.data);
-    console.log('videoFile2',videoFile);
     video.srcObject = null;
     video.src = videoFile;
     video.loop = true;
@@ -91,13 +80,13 @@ const handleStart = () => {
     actionBtn.innerText = "Download";
     actionBtn.disabled = false;
     actionBtn.addEventListener("click", handleDownload);
-
   };
 
   recorder.start();
+  
   setTimeout(() => {
-    actionBtn.disabled = false;
-  }, 1000);
+    recorder.stop();
+  }, 2000);
 };
 
 const init = async () => {
@@ -113,6 +102,5 @@ const init = async () => {
 };
 
 init();
-
 
 actionBtn.addEventListener("click", handleStart);
