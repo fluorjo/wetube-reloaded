@@ -1,5 +1,10 @@
 header {
+    background-color: rgb(6, 255, 118);
+
     padding: 20px 50px;
+    position: sticky;
+    top:0px;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +28,8 @@ header {
     }
     .header__btn {
       background-color: white;
-      color: $bg;
+      color: black;
+      border: 1px solid black;
       padding: 5px 10px;
       border-radius: 5px;
     }

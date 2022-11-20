@@ -10,13 +10,9 @@ const volumeRange = document.getElementById("volume");
 const timeline = document.getElementById("timeline");
 const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
-const stickScreenBtn = document.getElementById("stickScreen");
-const stickScreenIcon = stickScreenBtn.querySelector("i");
 
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
-
-videoContainer.classList.add('relativeclass');
 
 let controlsTimeout = null;
 let controlsMovementTimeout = null;
@@ -110,21 +106,6 @@ const handleFullScreen =() =>{
         fullScreenIcon.classList = "fas fa-compress";
     }
 };
-const handleStickScreen =() =>{
-    if(videoContainer.classList[0]==='relativeclass'){
-        videoContainer.classList.remove('relativeclass');
-        videoContainer.classList.add('stickyclass');
-        stickScreenIcon.classList = "fas fa-thumbtack"; 
-     
-
-
-    } else{
-        videoContainer.classList.remove('stickyclass');
-        videoContainer.classList.add('relativeclass');
-        stickScreenIcon.classList = "fas fa-circle-up";  
-
-    }
-};
 
 const hideControls = ()=>videoControls.classList.remove("showing");
 
@@ -171,7 +152,7 @@ timeline.addEventListener("change", handleTimelineSet);
 
 fullScreenBtn.addEventListener("click", handleFullScreen);
 
-stickScreenBtn.addEventListener("click", handleStickScreen);
+
 
 //부가기능들
 
