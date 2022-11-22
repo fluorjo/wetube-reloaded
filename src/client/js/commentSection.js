@@ -43,3 +43,21 @@ const handleSubmit = async (event) => {
 if (form) {
   form.addEventListener("submit", handleSubmit);
 }
+//-----------------------//
+const handleDeleteComment = async (event) => {
+  const li = event.srcElement.parentNode;
+  const {
+    dataset: { id: commentId },
+  } = li;
+
+  await fetch(`/api/comments/${commentId}/delete`, {
+    method: "DELETE",
+  });
+  li.remove();
+};
+
+if (deleteComments) {
+  deleteComments.forEach((deleteComment) => {
+    deleteComment.addEventListener("click", handleDeleteComment);
+  });
+}
