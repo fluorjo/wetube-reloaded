@@ -194,3 +194,6 @@ function spaceControl(event){
 window.addEventListener("keydown",(event) =>spaceControl(event));
 
 video.addEventListener("click", handlePlayClick);
+
+//-----------------------//
+const divideBtn = document.getElementById("divideScreen");
