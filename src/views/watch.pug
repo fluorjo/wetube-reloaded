@@ -1,6 +1,9 @@
 extends base
 
 block content
+    div
+        span#divideScreen
+            i.fas.fa-table-columns
     div#bigContainer    
         div#videoContainer.container1(data-id=video._id)
             video(src="/" + video.fileUrl)
@@ -23,11 +26,10 @@ block content
                 div
                     span#stickScreen
                         i.fas.fa-circle-up
-                div
-                    span#divideScreen
-                        i.fas.fa-table-columns
-        div.video__data
-        div#videoContainer.container2(data-id=video._id)
+                //- div
+                //-     span#divideScreen
+                //-         i.fas.fa-table-columns
+        div#videoContainer.container2.blind(data-id=video._id)
             video(src="/" + video.fileUrl)
             div#videoControls.videoControls
                 div.videoControls__play
@@ -51,7 +53,7 @@ block content
                 div
                     span#divideScreen
                         i.fas.fa-table-columns
-        div.video__data
+    div.video__data.data1
         p.video__title=video.title
         small.video__owner Uploaded by 
             a(href=`/users/${video.owner._id}`)=video.owner.name
@@ -60,6 +62,16 @@ block content
             a(href=`${video.id}/edit`) Edit Video &rarr;
             br
             a(href=`${video.id}/delete`) Delete Video &rarr;
+    div.video__data.data2.blind
+        p.video__title=video.title
+        small.video__owner Uploaded by 
+            a(href=`/users/${video.owner._id}`)=video.owner.name
+        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+        if String(video.owner._id) === String(loggedInUser._id)
+            a(href=`${video.id}/edit`) Edit Video &rarr;
+            br
+            a(href=`${video.id}/delete`) Delete Video &rarr;
+
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
