@@ -215,9 +215,16 @@ const divideBtnIcon = divideBtn.querySelector("i");
 // };
 
 const handleDivideScreen =() =>{
-    const kk= document.querySelectorAll("#videoContainer")
+    const vc= document.querySelectorAll("#videoContainer");
+    if(vc[1].classList[1]==='blind'){
+        vc[1].classList.remove('blind');
+        divideBtnIcon.classList = "fas fa-display"; 
+    }else{
+        vc[1].classList.add('blind');
+        divideBtnIcon.classList = "fas fa-table-columns"; 
+    }
 
-        console.log(kk[1]);
+        console.log(vc[1].classList[1]);
 };
 
 divideBtn.addEventListener("click", handleDivideScreen);
