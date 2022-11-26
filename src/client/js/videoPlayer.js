@@ -219,9 +219,9 @@ divideBtn.addEventListener("click", handleDivideScreen);
 
 
 const loadBtn = document.getElementById("loadVideo");
-const handleLoadVideo = (e) =>{
-    console.log('a');
-
+const handleLoadVideo = (req,res) =>{
+    return res.render("edit-profile",{pageTitle:"Edit Profile"})
+    // window.open('http://users/loadVideoPopup/:id','팝업','width=700,height=700'); 
 
 };
 

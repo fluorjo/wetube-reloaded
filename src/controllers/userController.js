@@ -227,9 +227,29 @@ export const see = async(req,res)=>{
   if(!user){
     return res.status(404).render("404",{pageTitle:"User not found"
   });
-  }
+   } 
 
   return res.render("users/profile",{pageTitle:user.name,
     user,
 });
-};
+} ;
+
+export const seePopup= async(req,res)=>{
+  const {id} = req.params;
+  const user = await User.findById(id).populate({
+    path: "videos",
+    populate: {
+      path: "owner",
+      model: "User",
+    },
+  });
+
+  if(!user){
+    return res.status(404).render("404",{pageTitle:"User not found"
+  });
+   } 
+
+  return res.render("users/profilePopup",{pageTitle:user.name,
+    user,
+});
+} ;

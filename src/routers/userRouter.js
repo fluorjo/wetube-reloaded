@@ -1,5 +1,5 @@
 import express from "express";
-import { getEdit, postEdit,logout,see, startGithubLogin,finishGithubLogin,
+import { getEdit, postEdit,logout,see,seePopup, startGithubLogin,finishGithubLogin,
 getChangePassword,
 postChangePassword, 
 } from "../controllers/userController";
@@ -22,4 +22,5 @@ userRouter.route("/change-password").all(protectorMiddleware).get(getChangePassw
 userRouter.get("/github/start",publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish",publicOnlyMiddleware, finishGithubLogin);
 userRouter.get("/:id",see);
+userRouter.get("/loadVideoPopup/:id",seePopup);
 export default userRouter;
