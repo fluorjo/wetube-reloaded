@@ -56,8 +56,8 @@ const handleDeleteComment = async (event) => {
   li.remove();
 };
 
-if (deleteComments) {
-  deleteComments.forEach((deleteComment) => {
-    deleteComment.addEventListener("click", handleDeleteComment);
-  });
-}
+// if (deleteComments) {
+//   deleteComments.forEach((deleteComment) => {
+//     deleteComment.addEventListener("click", handleDeleteComment);
+//   });
+// }

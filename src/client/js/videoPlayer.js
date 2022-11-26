@@ -16,6 +16,8 @@ const stickScreenIcon = stickScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
 
+
+
 videoContainer.classList.add('relativeclass');
 
 let controlsTimeout = null;
@@ -173,7 +175,6 @@ fullScreenBtn.addEventListener("click", handleFullScreen);
 
 stickScreenBtn.addEventListener("click", handleStickScreen);
 
-//부가기능들
 
 const handleVideoEnded = () => {
     video.currentTime = 0;
@@ -195,24 +196,9 @@ window.addEventListener("keydown",(event) =>spaceControl(event));
 
 video.addEventListener("click", handlePlayClick);
 
-//-----------------------//
+
 const divideBtn = document.getElementById("divideScreen");
 const divideBtnIcon = divideBtn.querySelector("i");
-
-// const handleDivideScreen =() =>{
-//     if(videoContainer[1].classList[1]
-//     ==='blind'){
-//         console.log(videoContainer[1].classList[1])
-//         // videoContainer[1].classList.remove('blind');
-//         divideBtnIcon.classList = "fas fa-display"; 
-
-//     } else{
-
-//         videoContainer[1].classList.add('blind');
-//         divideBtnIcon.classList = "fas fa-table-columns";  
-
-//     }
-// };
 
 const handleDivideScreen =() =>{
     const vc= document.querySelectorAll("#videoContainer");
@@ -227,4 +213,16 @@ const handleDivideScreen =() =>{
         console.log(vc[1].classList[1]);
 };
 
+
+
 divideBtn.addEventListener("click", handleDivideScreen);
+
+
+const loadBtn = document.getElementById("loadVideo");
+const handleLoadVideo = (e) =>{
+    console.log('a');
+
+
+};
+
+loadBtn.addEventListener("click", handleLoadVideo);
