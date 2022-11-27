@@ -219,7 +219,15 @@ const handleDivideScreen =() =>{
 divideBtn.addEventListener("click", handleDivideScreen);
 
 
-// const loadBtn = document.getElementById("loadVideo");
+// let loadVideoBtn = document.getElementById("loadVideo");
+
+// onload=()=>{
+//     for (let i=0; i <loadVideoBtn.clientHeight; i++) {
+//         loadVideoBtn[i].setAttribute('target','_parent');
+//     }
+// };
+
+// loadVideoBtn.addEventListener("click", onload);
 
 // const handleLoadVideo = () =>{
 
@@ -228,4 +236,3 @@ divideBtn.addEventListener("click", handleDivideScreen);
 //     console.log(newURL);
 // };
 
-// loadBtn.addEventListener("click", handleLoadVideo);
