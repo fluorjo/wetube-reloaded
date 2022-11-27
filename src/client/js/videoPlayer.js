@@ -1,3 +1,5 @@
+import User from "../../models/User";
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -219,10 +221,11 @@ divideBtn.addEventListener("click", handleDivideScreen);
 
 
 const loadBtn = document.getElementById("loadVideo");
-const handleLoadVideo = (req,res) =>{
-    return res.render("edit-profile",{pageTitle:"Edit Profile"})
-    // window.open('http://users/loadVideoPopup/:id','팝업','width=700,height=700'); 
+const handleLoadVideo = (e) =>{
 
+    var newURL = window.location.protocol + "//" + "users" + "/" + User.id;
+
+    console.log(User.id);
 };
 
 loadBtn.addEventListener("click", handleLoadVideo);
