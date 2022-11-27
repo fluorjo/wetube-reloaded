@@ -1,4 +1,3 @@
-import User from "../../models/User";
 
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
@@ -220,12 +219,13 @@ const handleDivideScreen =() =>{
 divideBtn.addEventListener("click", handleDivideScreen);
 
 
-const loadBtn = document.getElementById("loadVideo");
-const handleLoadVideo = (e) =>{
+// const loadBtn = document.getElementById("loadVideo");
 
-    var newURL = window.location.protocol + "//" + "users" + "/" + User.id;
+// const handleLoadVideo = () =>{
 
-    console.log(User.id);
-};
+//     let newURL = window.location.protocol + "//" +window.location.host + "/"+ "users" + "/" ;
 
-loadBtn.addEventListener("click", handleLoadVideo);
+//     console.log(newURL);
+// };
+
+// loadBtn.addEventListener("click", handleLoadVideo);

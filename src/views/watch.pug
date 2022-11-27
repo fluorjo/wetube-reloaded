@@ -30,7 +30,8 @@ block content
                 //-     span#divideScreen
                 //-         i.fas.fa-table-columns
         div#videoContainer.container2
-            button#loadVideo click here to load video
+            div#loadVideoBtn 
+                a(href=`/users/loadVideoPopup/${video.owner._id}`) click here to load video
             div#videoControls.videoControls.controls2
                 div.videoControls__play
                     span#play.videoControls__playBtn
