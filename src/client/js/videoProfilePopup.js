@@ -1,9 +1,10 @@
-const v = document.querySelectorAll("a");
-console.log(v);
+const videoMixins = document.querySelectorAll("a");
 
 const vvv = (event) =>{
     console.log('sss');
     event.preventDefault();
 };
 
-v.addEventListener("click",vvv);
+videoMixins.forEach((mixin)=>{
+    mixin.addEventListener('click',vvv)
+});
