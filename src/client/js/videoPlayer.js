@@ -216,4 +216,12 @@ const handleDivideScreen =() =>{
 
 divideBtn.addEventListener("click", handleDivideScreen);
 
-localStorage.setItem('secondVideo','1');
+//-----------------------------//
+const secondVideoUrl =localStorage.getItem('secondVideo');
+arrayUrl=secondVideoUrl.split('/');
+finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
+const ddd=document.getElementById("2vid");
+ddd.src=finalUrl;
+console.log(secondVideoUrl);
+console.log(arrayUrl);
+console.log(finalUrl);
