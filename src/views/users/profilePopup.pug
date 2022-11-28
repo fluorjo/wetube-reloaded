@@ -1,5 +1,5 @@
 extends ../base_profilePopup
-include ../mixins/video
+include ../mixins/video_profilePopup
 
 block content
     div.profile__data
@@ -10,4 +10,4 @@ block content
         else
             span.empty__message No videos found
 block scripts
-    script(src="/static/js/videoPlayer.js")
+    script(src="../js/videoProfilePopup.js")
