@@ -3,11 +3,13 @@ const videoMixins = document.querySelectorAll("a");
 
 videoMixins.forEach((mixin)=>{
 
-    const vvv = (event) =>{
-        console.log(mixin.href);
+    const saveUrlToStorage = (event) =>{
+        videoURL=mixin.href;
+        localStorage.setItem("secondVideo",videoURL);
         event.preventDefault();
+        window.close();
     };
     
 
-    mixin.addEventListener('click',vvv);
+    mixin.addEventListener('click',saveUrlToStorage);
 });
