@@ -214,25 +214,6 @@ const handleDivideScreen =() =>{
         console.log(vc[1].classList[1]);
 };
 
-
-
 divideBtn.addEventListener("click", handleDivideScreen);
 
-
-// let loadVideoBtn = document.getElementById("loadVideo");
-
-// onload=()=>{
-//     for (let i=0; i <loadVideoBtn.clientHeight; i++) {
-//         loadVideoBtn[i].setAttribute('target','_parent');
-//     }
-// };
-
-// loadVideoBtn.addEventListener("click", onload);
-
-// const handleLoadVideo = () =>{
-
-//     let newURL = window.location.protocol + "//" +window.location.host + "/"+ "users" + "/" ;
-
-//     console.log(newURL);
-// };
-
+localStorage.setItem('secondVideo','1');
