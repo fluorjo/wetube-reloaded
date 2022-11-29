@@ -217,6 +217,17 @@ const handleDivideScreen =() =>{
 divideBtn.addEventListener("click", handleDivideScreen);
 
 //-----------------------------//
+const a={};
+Object.defineProperty(a,'b',{
+
+    get(){
+        let secondVideoUrl =localStorage.getItem('secondVideo');
+        let arrayUrl=secondVideoUrl.split('/');
+        return `/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
+    }
+});
+
+console.log('ssss',a.b);
 const secondVideoUrl =localStorage.getItem('secondVideo');
 arrayUrl=secondVideoUrl.split('/');
 finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
@@ -225,3 +236,9 @@ second_video.src=finalUrl;
 console.log(secondVideoUrl);
 console.log(arrayUrl);
 console.log(finalUrl);
+//------------------------------//
+
+window.onstorage = event => { 
+    location.reload();
+  };
+   
