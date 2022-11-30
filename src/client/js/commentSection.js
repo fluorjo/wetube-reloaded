@@ -1,6 +1,9 @@
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 
+let deleteComments = document.querySelectorAll("#delete__comment");
+
+
 const addComment = (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
@@ -56,8 +59,8 @@ const handleDeleteComment = async (event) => {
   li.remove();
 };
 
-// if (deleteComments) {
-//   deleteComments.forEach((deleteComment) => {
-//     deleteComment.addEventListener("click", handleDeleteComment);
-//   });
-// }
+if (deleteComments) {
+  deleteComments.forEach((deleteComment) => {
+    deleteComment.addEventListener("click", handleDeleteComment);
+  });
+}
