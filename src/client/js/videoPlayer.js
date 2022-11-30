@@ -199,10 +199,10 @@ function spaceControl(event){
 
 window.addEventListener("keydown",(event) =>{
     if(event.target.localName!=="textarea"){
-        console.log(event.target.localName);
+
     spaceControl(event);
     }else{
-        console.log(event.target.localName);
+
     }
 });
 
@@ -251,4 +251,16 @@ second_video.src=finalUrl;
 window.onstorage = event => { 
     location.reload();
   };
+
+  function capture() {
+    const canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+    const dataURL = canvas.toDataURL("image/png");
+    const a = document.createElement("a");
+    a.href = dataURL;
+    a.download = "capture.png";
+    a.click();
+};
    

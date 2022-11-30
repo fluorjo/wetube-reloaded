@@ -220,7 +220,7 @@ const handleDivideScreen =() =>{
         vc[1].classList.add('blind');
         divideBtnIcon.classList = "fas fa-table-columns"; 
     }
-
+ 
         console.log(vc[1].classList[1]);
 };
 
