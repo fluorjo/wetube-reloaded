@@ -1,7 +1,7 @@
-console.log('22222');
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
+
 const muteBtn = document.getElementById("mute");
 const muteBtnIcon = muteBtn.querySelector("i");
 
@@ -235,9 +235,9 @@ arrayUrl=secondVideoUrl.split('/');
 finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
 const second_video=document.getElementById("2vid");
 second_video.src=finalUrl;
-console.log(secondVideoUrl);
-console.log(arrayUrl);
-console.log(finalUrl);
+// console.log(secondVideoUrl);
+// console.log(arrayUrl);
+// console.log(finalUrl);
 //------------------------------//
 
 window.onstorage = event => { 

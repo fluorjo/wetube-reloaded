@@ -1,24 +1,30 @@
+const videoContainer2 = document.getElementById("videoContainer2");
 
-const video = document.querySelector("video");
-const playBtn = document.getElementById("play");
+const videoControls = videoContainer2.querySelector("#videoControls");
+
+const video = videoContainer2.querySelector("video");
+
+const playBtn = videoContainer2.querySelector("#play");
+
 const playBtnIcon = playBtn.querySelector("i");
-const muteBtn = document.getElementById("mute");
+
+const muteBtn = videoContainer2.querySelector("#mute");
 const muteBtnIcon = muteBtn.querySelector("i");
 
-const currentTime = document.getElementById("currentTime");
-const totalTime = document.getElementById("totalTime");
-const volumeRange = document.getElementById("volume");
-const timeline = document.getElementById("timeline");
-const fullScreenBtn = document.getElementById("fullScreen");
+const currentTime = videoContainer2.querySelector("#currentTime");
+console.log(currentTime);
+const totalTime = videoContainer2.querySelector("#totalTime");
+const volumeRange = videoContainer2.querySelector("#volume");
+const timeline = videoContainer2.querySelector("#timeline");
+const fullScreenBtn = videoContainer2.querySelector("#fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
-const stickScreenBtn = document.getElementById("stickScreen");
+const stickScreenBtn = videoContainer2.querySelector("#stickScreen");
 const stickScreenIcon = stickScreenBtn.querySelector("i");
 
 
-const videoContainer = document.getElementById("videoContainer");
-console.log('vss',videoContainer);
 
-const videoControls = document.getElementById("videoControls");
+
+
 
 videoContainer.classList.add('relativeclass');
 
@@ -231,15 +237,15 @@ Object.defineProperty(a,'b',{
     }
 });
 
-console.log('ssss',a.b);
+
 const secondVideoUrl =localStorage.getItem('secondVideo');
 arrayUrl=secondVideoUrl.split('/');
 finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
 const second_video=document.getElementById("2vid");
 second_video.src=finalUrl;
-console.log(secondVideoUrl);
-console.log(arrayUrl);
-console.log(finalUrl);
+// console.log(secondVideoUrl);
+// console.log(arrayUrl);
+// console.log(finalUrl);
 //------------------------------//
 
 window.onstorage = event => { 
