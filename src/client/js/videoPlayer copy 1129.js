@@ -1,4 +1,4 @@
-console.log('22222');
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -13,7 +13,6 @@ const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const stickScreenBtn = document.getElementById("stickScreen");
 const stickScreenIcon = stickScreenBtn.querySelector("i");
-
 
 const videoContainer = document.getElementById("videoContainer");
 
@@ -230,6 +229,7 @@ Object.defineProperty(a,'b',{
     }
 });
 
+console.log('ssss',a.b);
 const secondVideoUrl =localStorage.getItem('secondVideo');
 arrayUrl=secondVideoUrl.split('/');
 finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;

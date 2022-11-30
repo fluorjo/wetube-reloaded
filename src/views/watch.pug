@@ -6,6 +6,7 @@ block content
             i.fas.fa-table-columns
     div#bigContainer    
         div#videoContainer.container1(data-id=video._id)
+            span asdqwee
             video(src="/" + video.fileUrl)
             div#videoControls.videoControls
                 div.videoControls__play
@@ -38,6 +39,7 @@ block content
         //-https://diaryofgreen.tistory.com/73
         div#videoContainer.container2
             div#videoControls.videoControls.controls2(data-id=video._id)
+            span asdqwee
             video(id="2vid")
                 div.videoControls__play
                     span#play.videoControls__playBtn
@@ -93,6 +95,8 @@ block content
                     span ❌
 block scripts
     script(src="/static/js/videoPlayer.js")
+    script(src="/src/client/js/videoPlayer2.js")
+
     if loggedIn
         script(src="/static/js/commentSection.js") 
         
