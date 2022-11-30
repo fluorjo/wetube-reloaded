@@ -45,7 +45,7 @@ const handleSubmit = async (event) => {
 
 if (form) {
   form.addEventListener("submit", handleSubmit);
-}
+};
 //-----------------------//
 const handleDeleteComment = async (event) => {
   const li = event.srcElement.parentNode;
@@ -64,3 +64,18 @@ if (deleteComments) {
     deleteComment.addEventListener("click", handleDeleteComment);
   });
 }
+//------------------------//
+
+// function spaceControl2(event){
+//   let key = event.key || event.keyCode;
+//   if (key === ' ' || key === 32) {
+//       event.preventDefault();
+//       console.log('sddasd');
+//       return false;
+// }
+// };
+
+// if (form) {
+//   form.addEventListener("keydown",(event) =>spaceControl2(event));
+// }
+

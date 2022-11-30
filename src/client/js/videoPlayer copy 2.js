@@ -188,7 +188,6 @@ const handleVideoEnded = () => {
     video.addEventListener("ended", handleVideoEnded);
 
 function spaceControl(event){
-    
     let key = event.key || event.keyCode;
     if (key === ' ' || key === 32) {
         event.preventDefault();
@@ -197,14 +196,7 @@ function spaceControl(event){
 }
 };
 
-window.addEventListener("keydown",(event) =>{
-    if(event.target.localName!=="textarea"){
-        console.log(event.target.localName);
-    spaceControl(event);
-    }else{
-        console.log(event.target.localName);
-    }
-});
+window.addEventListener("keydown",(event) =>spaceControl(event));
 
 video.addEventListener("click", handlePlayClick);
 

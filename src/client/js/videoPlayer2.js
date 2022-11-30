@@ -194,16 +194,16 @@ const handleVideoEnded = () => {
     
     video.addEventListener("ended", handleVideoEnded);
 
-function spaceControl(event){
-    let key = event.key || event.keyCode;
-    if (key === ' ' || key === 32) {
-        event.preventDefault();
-        handlePlayClick();        
-        return false;
-}
-};
+// function spaceControl(event){
+//     let key = event.key || event.keyCode;
+//     if (key === ' ' || key === 32) {
+//         event.preventDefault();
+//         handlePlayClick();        
+//         return false;
+// }
+// };
 
-window.addEventListener("keydown",(event) =>spaceControl(event));
+// window.addEventListener("keydown",(event) =>spaceControl(event));
 
 video.addEventListener("click", handlePlayClick);
 
