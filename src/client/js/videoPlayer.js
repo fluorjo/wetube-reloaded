@@ -246,21 +246,28 @@ second_video.src=finalUrl;
 // console.log(secondVideoUrl);
 // console.log(arrayUrl);
 // console.log(finalUrl);
-//------------------------------//
+//-----로컬스토리지에 변화 있으면 새로고침---//
 
 window.onstorage = event => { 
     location.reload();
   };
 
-  function capture() {
+//------------스크린샷----------------//
+const screenShot = document.getElementById("screenShot");
+const screenShotAnchor = screenShot.querySelector("a");
+
+const capture =() =>{
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+    
     const dataURL = canvas.toDataURL("image/png");
-    const a = document.createElement("a");
-    a.href = dataURL;
-    a.download = "capture.png";
-    a.click();
+    
+    screenShotAnchor.href = dataURL;
+    console.log(screenShotAnchor.href);
+    screenShotAnchor.download = "capture.png";
+    screenShotAnchor.click();
 };
-   
+
+screenShotAnchor.addEventListener("click", capture);
