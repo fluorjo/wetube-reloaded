@@ -1,4 +1,4 @@
-import { async } from "regenerator-runtime";
+
 
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
@@ -260,10 +260,24 @@ window.onstorage = event => {
 const screenShot = document.getElementById("screenShot");
 const screenShotAnchor = screenShot.querySelector("a");
 
-const submitScreenShot = async(event) =>{
+const aaaa=()=>{
 
-    await fetch(`/api/videos/${videoId}/comment`
 }
+
+
+// const submitScreenShot = async(event) =>{
+//     event.preventDefault();
+
+//     const videoId = videoContainer.dataset.id;
+//     await fetch(`/api/videos/${videoId}/meme`,{
+//         method:"POST"
+//         //req.body로 보낼 정보들.
+//         body:{
+
+//         }
+//     }
+//     )
+// }
 
 
 
@@ -290,4 +304,4 @@ const capture =() =>{
     // screenShotAnchor.click();
 };
 
-screenShotAnchor.addEventListener("click", capture);
+// screenShotAnchor.addEventListener("click", capture);

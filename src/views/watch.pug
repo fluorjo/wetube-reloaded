@@ -38,6 +38,9 @@ block content
 
         div#screenShot
             a(id='screenShotAnchor' 
+            href=`/videos/${video._id}/meme`
+            onclick="window.open(this.href,'insert','width=450,height=450'); return false;"
+            target="_parent"
             ) ScreenShot   
 
         div#videoContainer2.container2(data-id=video._id)
