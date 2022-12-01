@@ -1,6 +1,12 @@
 import Video from "../models/Video";
 import Comment from "../models/Comment";
 import User from "../models/User";
+import Meme from "../models/Meme";
+
+export const memeMaker = (req, res)=>{
+    return res.render("meme",{pageTitle:"Meme Maker"});
+};
+
 
 export const  home = async(req,res)=>{
         const videos = await Video.find({})

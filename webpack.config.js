@@ -11,6 +11,7 @@ module.exports={
         videoProfilePopup: BASE_JS + "videoProfilePopup.js",
         recorder: BASE_JS + "recorder.js",
         commentSection: BASE_JS + "commentSection.js",
+        memeMaker: BASE_JS + "memeMaker.js",
     },
     plugins: [
         new MiniCssExtractPlugin({
