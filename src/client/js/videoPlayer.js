@@ -1,3 +1,5 @@
+import { async } from "regenerator-runtime";
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -246,6 +248,8 @@ second_video.src=finalUrl;
 // console.log(secondVideoUrl);
 // console.log(arrayUrl);
 // console.log(finalUrl);
+
+
 //-----로컬스토리지에 변화 있으면 새로고침---//
 
 window.onstorage = event => { 
@@ -255,6 +259,18 @@ window.onstorage = event => {
 //------------스크린샷----------------//
 const screenShot = document.getElementById("screenShot");
 const screenShotAnchor = screenShot.querySelector("a");
+
+const submitScreenShot = async(event) =>{
+
+    await fetch(`/api/videos/${videoId}/comment`
+}
+
+
+
+
+
+
+
 
 const capture =() =>{
     const canvas = document.createElement("canvas");
