@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
-const commentSchema = new mongoose.Schema({
+const memeSchema = new mongoose.Schema({
   text: { type: String, required: true },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
   video: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Video" },
-  meme: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Meme" },
+  comment: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Comment" },
   createdAt: { type: Date, required: true, default: Date.now },
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
+const Meme = mongoose.model("Meme", memeSchema);
 
-export default Comment;
+export default Meme;
