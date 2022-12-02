@@ -313,9 +313,13 @@ const capture =() =>{
 
    const a = document.createElement("a");
    const {id} = videoContainer.dataset;
-    a.href=`/videos/${id}/mememaker`;
-    document.body.appendChild(a);
-    a.click();
+   let options = "toolbar=no,scrollbars=no,resizable=yes,status=no,menubar=no,width=1200, height=800, top=0,left=0";
+    let win=window.open(`/videos/${id}/mememaker`,'_blank',options);
+    win();
+
+//    a.href=`/videos/${id}/mememaker`;
+//    document.body.appendChild(a);
+//    a.click();
       };
 
 
