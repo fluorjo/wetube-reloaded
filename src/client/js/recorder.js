@@ -45,9 +45,6 @@ const handleDownload = async () => {
 
     const mp4Url = URL.createObjectURL(mp4Blob);
     const thumbUrl = URL.createObjectURL(thumbBlob);
-    console.log('c',thumbBlob);
-
-
 
     //다운로드 링크 생성 및 자동 클릭
     downloadFile(mp4Url, "MyRecording.mp4");

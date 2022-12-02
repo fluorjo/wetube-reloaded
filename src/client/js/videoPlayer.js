@@ -287,7 +287,13 @@ function b64toBlob(b64Data, contentType = '', sliceSize = 512) {
   
     return new Blob([arraybuffer], { type: contentType });
  };
-  
+ const downloadFile = (fileUrl, fileName) =>{
+    const a = document.createElement("a");
+    a.href=fileUrl;
+    a.download=fileName;
+    document.body.appendChild(a);
+    a.click();
+  };
 const capture =() =>{
     console.log('asddasqwe');
     const canvas = document.createElement("canvas");
@@ -304,7 +310,10 @@ const capture =() =>{
     const blobUrl = URL.createObjectURL(blob); 
     const img = document.createElement('img');
     img.src = blobUrl;
-    
+    downloadFile(blobUrl, "sdasd.jpg");
+    fetch(blobUrl).then(console.log);
+    //URL.revokeObjectURL(blobUrl);
+
     // const downloadFile = (fileUrl, fileName) =>{
     //     const a = document.createElement("a");
     //     a.href=fileUrl;
