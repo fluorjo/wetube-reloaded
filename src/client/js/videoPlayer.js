@@ -307,11 +307,14 @@ const capture =() =>{
     const contentType = 'image/png';
     const b64Data = dataURL;
     const blob = b64toBlob(b64Data, contentType); // base64 -> blob
-    const blobUrl = URL.createObjectURL(blob); 
+    const blobUrl = URL.createObjectURL(blob);
+ 
     const img = document.createElement('img');
     img.src = blobUrl;
-    downloadFile(blobUrl, "sdasd.jpg");
-    fetch(blobUrl).then(console.log);
+    localStorage.setItem("screenshot",blobUrl);
+//  downloadFile(blobUrl, "sdasd.jpg");
+
+    //fetch(blobUrl,{method:"POST",});
     //URL.revokeObjectURL(blobUrl);
 
     // const downloadFile = (fileUrl, fileName) =>{
