@@ -260,11 +260,6 @@ window.onstorage = event => {
 const screenShot = document.getElementById("screenShot");
 const screenShotAnchor = screenShot.querySelector("a");
 
-const aaaa=()=>{
-
-}
-
-
 // const submitScreenShot = async(event) =>{
 //     event.preventDefault();
 
@@ -279,29 +274,30 @@ const aaaa=()=>{
 //     )
 // }
 
-
-
-
-
-
-
-
 const capture =() =>{
+    console.log('asddasqwe');
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
     
-    const dataURL = canvas.toDataURL("image/png");
+    let dataURL = canvas.toDataURL("image/png");
     
-    screenShotAnchor.href = dataURL;
-    console.log(screenShotAnchor.href);
 
-    let win = window.open();
-    win.document.write('<iframe src="' + dataURL  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+    // const {id} = videoContainer.dataset;
+    // fetch(`/videos/${id}/meme`,{method:"POST",});
+    // };
+
+    // req.params=dataURL;
+    // return res.render("meme",{pageTitle:"meme"});
+    // let win = window.open();
+    // win.document.write('<iframe src="' + req  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
 
 
     // screenShotAnchor.click();
 };
 
-// screenShotAnchor.addEventListener("click", capture);
+screenShotAnchor.addEventListener("click", capture);
+
+// fetch(`/api/videos/${id}/view`,{method:"POST",
+// });
