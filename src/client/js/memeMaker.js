@@ -28,6 +28,15 @@ let textSizeValue=50;
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 800;
 
+
+let url =localStorage.getItem("screenshot");
+console.log(url);
+const image = new Image();
+image.src = 'blob:http://localhost:4000/d9ede0d1-8243-45d2-81f9-b85a527cb558';
+image.onload = function(){
+  // 이미지 그리기
+  ctx.drawImage(image, 100, 100);
+}
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
