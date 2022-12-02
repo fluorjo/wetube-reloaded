@@ -280,12 +280,29 @@ const capture =() =>{
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-    
+
     let dataURL = canvas.toDataURL("image/png");
-    screenShotAnchor.href = dataURL;
-    console.log(screenShotAnchor.href);
-    screenShotAnchor.download = "capture.png";
-    screenShotAnchor.click();
+//    screenShotAnchor.href = dataURL;
+    console.log('data',dataURL);
+    const memeBlob = new Blob([dataURL.buffer], { type: "image/jpg" });
+    const memeUrl = URL.createObjectURL(memeBlob);
+    console.log('blob',memeBlob);
+    console.log('url',memeUrl);
+
+    const downloadFile = (fileUrl, fileName) =>{
+        const a = document.createElement("a");
+        a.href=fileUrl;
+        a.download=fileName;
+        document.body.appendChild(a);
+        a.click();
+      };
+
+    //downloadFile(memeUrl, "ddddd.jpg");
+    //URL.revokeObjectURL(memeUrl);
+
+    //fetch(screenShotAnchor.href).then(console.log)  
+    //screenShotAnchor.download = "capture.png";
+    //screenShotAnchor.click();
     //let win = window.open();
     // win.document.write('<iframe src="' + req  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
 
