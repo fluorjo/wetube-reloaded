@@ -274,15 +274,14 @@ const screenShotAnchor = screenShot.querySelector("a");
 //     )
 // }
 function b64toBlob(b64Data, contentType = '', sliceSize = 512) {
-    const image_data = atob(b64Data.split(',')[1]); // data:image/gif;base64 필요없으니 떼주고, base64 인코딩을 풀어준다
+    const image_data = atob(b64Data.split(',')[1]); 
   
     const arraybuffer = new ArrayBuffer(image_data.length);
     const view = new Uint8Array(arraybuffer);
   
     for (let i = 0; i < image_data.length; i++) {
        view[i] = image_data.charCodeAt(i) & 0xff;
-       // charCodeAt() 메서드는 주어진 인덱스에 대한 UTF-16 코드를 나타내는 0부터 65535 사이의 정수를 반환
-       // 비트연산자 & 와 0xff(255) 값은 숫자를 양수로 표현하기 위한 설정
+
     }
   
     return new Blob([arraybuffer], { type: contentType });
@@ -295,7 +294,6 @@ function b64toBlob(b64Data, contentType = '', sliceSize = 512) {
     a.click();
   };
 const capture =() =>{
-    console.log('asddasqwe');
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -312,17 +310,12 @@ const capture =() =>{
     const img = document.createElement('img');
     img.src = blobUrl;
     localStorage.setItem("screenshot",blobUrl);
-//  downloadFile(blobUrl, "sdasd.jpg");
 
-    //fetch(blobUrl,{method:"POST",});
-    //URL.revokeObjectURL(blobUrl);
-
-    // const downloadFile = (fileUrl, fileName) =>{
-    //     const a = document.createElement("a");
-    //     a.href=fileUrl;
-    //     a.download=fileName;
-    //     document.body.appendChild(a);
-    //     a.click();
+   const a = document.createElement("a");
+   const {id} = videoContainer.dataset;
+    a.href=`/videos/${id}/mememaker`;
+    document.body.appendChild(a);
+    a.click();
       };
 
 
@@ -336,13 +329,7 @@ const capture =() =>{
     //fetch(screenShotAnchor.href).then(console.log)  
     //screenShotAnchor.download = "capture.png";
     //screenShotAnchor.click();
-    //let win = window.open();
-    // win.document.write('<iframe src="' + req  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
 
-
-    // screenShotAnchor.click();
 
 screenShotAnchor.addEventListener("click", capture);
 
-// fetch(`/api/videos/${id}/view`,{method:"POST",
-// });

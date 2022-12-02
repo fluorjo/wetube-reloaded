@@ -39,7 +39,9 @@ console.log(IMAGE_WIDTH);
 const CANVAS_WIDTH = IMAGE_WIDTH;
 const CANVAS_HEIGHT = IMAGE_HEIGHT;
 
-
+window.onstorage = event => { 
+  location.reload();
+};
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
