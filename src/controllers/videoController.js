@@ -210,6 +210,7 @@ export const postMemeUpload = async(req, res)=>{
             description,
             fileUrl:isHeroku ? video[0].location.replace(/[\\]/g, "/") : video[0].path.replace(/[\\]/g, "/"),
             thumbUrl:isHeroku ? thumb[0].location.replace(/[\\]/g, "/") : thumb[0].path.replace(/[\\]/g, "/"),
+            memeUrl:isHeroku ? meme[0].location.replace(/[\\]/g, "/") : meme[0].path.replace(/[\\]/g, "/"),
             owner:_id,
             hashtags: Video.formatHashtags(hashtags),
     });

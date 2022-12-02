@@ -26,7 +26,7 @@ videoRouter
 .route("/:id([0-9a-f]{24})/memeMaker")
 .all(protectorMiddleware)
 .get(getMemeUpload)
-.post(memeUpload.fields([
+.post(memeUpload.single([
     {name:"meme",maxCount:1}
 ]),postMemeUpload);
 
