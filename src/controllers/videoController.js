@@ -3,9 +3,7 @@ import Comment from "../models/Comment";
 import User from "../models/User";
 import Meme from "../models/Meme";
 
-export const memeMaker = (req, res)=>{
-    return res.render("meme",{pageTitle:"Meme Maker"});
-};
+
 
 
 export const  home = async(req,res)=>{
@@ -191,3 +189,38 @@ export const createComment = async (req, res) => {
   
     return res.sendStatus(200);
   };
+//--------Meme--------------//
+
+export const getMemeUpload = (req, res)=>{
+    return res.render("meme",{pageTitle:"Meme Maker "});
+};
+export const postMemeUpload = async(req, res)=>{
+    const {
+        user:{_id},
+    } = req.session;
+    const {meme} = req.files;
+
+    const {title, description, hashtags} = req.body;
+
+    const isHeroku=process.env.NODE_ENV==="production";
+
+    try{
+        const newVideo = await Video.create({
+            title,
+            description,
+            fileUrl:isHeroku ? video[0].location.replace(/[\\]/g, "/") : video[0].path.replace(/[\\]/g, "/"),
+            thumbUrl:isHeroku ? thumb[0].location.replace(/[\\]/g, "/") : thumb[0].path.replace(/[\\]/g, "/"),
+            owner:_id,
+            hashtags: Video.formatHashtags(hashtags),
+    });
+    const user = await User.findById(_id);
+    user.videos.push(newVideo._id);
+    user.save();
+        return res.redirect("/");
+    } catch(error){
+        console.log(error);
+        return res.status(400).render("upload",{pageTitle:"Upload video",errorMessage: error._message,
+    });
+    }
+    //promise:저장될 때까지 기다린다. 
+};

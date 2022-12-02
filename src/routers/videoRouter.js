@@ -1,8 +1,10 @@
 import express from "express";
 
-import {watch, getEdit,postEdit,getUpload,postUpload,deleteVideo,memeMaker} from "../controllers/videoController";
-import { protectorMiddleware,videoUpload } from "../middlewares";
+import {watch, getEdit,postEdit,getUpload,postUpload,getMemeUpload,postMemeUpload,deleteVideo,memeMaker} from "../controllers/videoController";
+import { protectorMiddleware,videoUpload,memeUpload } from "../middlewares";
 const  videoRouter=express.Router() ;
+
+
 
 videoRouter.get("/:id([0-9a-f]{24})",watch);
 videoRouter.route("/:id([0-9a-f]{24})/edit").all(protectorMiddleware).get(getEdit).post(postEdit);
@@ -20,12 +22,13 @@ videoRouter
     {name:"thumb",maxCount:1}
 ]),postUpload);
 
-
 videoRouter
-.route("/:id([0-9a-f]{24})/meme")
+.route("/:id([0-9a-f]{24})/memeMaker")
 .all(protectorMiddleware)
-.get(memeMaker);
-// .post(postEdit);
-//이 post 부분에 mememaker에서 만든 걸 받아오는 변수? 모델? 파일? 그걸 넣어주면 되는 건가?
+.get(getMemeUpload)
+.post(memeUpload.fields([
+    {name:"meme",maxCount:1}
+]),postMemeUpload);
+
 
 export default videoRouter;
