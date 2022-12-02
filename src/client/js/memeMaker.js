@@ -25,20 +25,29 @@ const textSize = document.getElementById("text-size");
 
 let textSizeValue=50;
 
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 800;
 
 
 let url =localStorage.getItem("screenshot");
 console.log(url);
 const image = new Image();
-image.src = 'blob:http://localhost:4000/d9ede0d1-8243-45d2-81f9-b85a527cb558';
-image.onload = function(){
-  // 이미지 그리기
-  ctx.drawImage(image, 100, 100);
-}
+image.src = url;
+
+let IMAGE_WIDTH=image.width;
+let IMAGE_HEIGHT=image.height;
+console.log(IMAGE_WIDTH);
+
+const CANVAS_WIDTH = IMAGE_WIDTH;
+const CANVAS_HEIGHT = IMAGE_HEIGHT;
+
+
+
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
+
+image.onload = function(){
+  // 이미지 그리기
+  ctx.drawImage(image, 0, 0,IMAGE_WIDTH,IMAGE_HEIGHT);
+};
 ctx.lineWidth = lineWidth.value;
 ctx.lineCap = "round";
 let isPainting = false;
