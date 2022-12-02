@@ -273,7 +273,21 @@ const screenShotAnchor = screenShot.querySelector("a");
 //     }
 //     )
 // }
-
+function b64toBlob(b64Data, contentType = '', sliceSize = 512) {
+    const image_data = atob(b64Data.split(',')[1]); // data:image/gif;base64 필요없으니 떼주고, base64 인코딩을 풀어준다
+  
+    const arraybuffer = new ArrayBuffer(image_data.length);
+    const view = new Uint8Array(arraybuffer);
+  
+    for (let i = 0; i < image_data.length; i++) {
+       view[i] = image_data.charCodeAt(i) & 0xff;
+       // charCodeAt() 메서드는 주어진 인덱스에 대한 UTF-16 코드를 나타내는 0부터 65535 사이의 정수를 반환
+       // 비트연산자 & 와 0xff(255) 값은 숫자를 양수로 표현하기 위한 설정
+    }
+  
+    return new Blob([arraybuffer], { type: contentType });
+ };
+  
 const capture =() =>{
     console.log('asddasqwe');
     const canvas = document.createElement("canvas");
@@ -283,19 +297,26 @@ const capture =() =>{
 
     let dataURL = canvas.toDataURL("image/png");
 //    screenShotAnchor.href = dataURL;
-    console.log('data',dataURL);
-    const memeBlob = new Blob([dataURL.buffer], { type: "image/jpg" });
-    const memeUrl = URL.createObjectURL(memeBlob);
-    console.log('blob',memeBlob);
-    console.log('url',memeUrl);
 
-    const downloadFile = (fileUrl, fileName) =>{
-        const a = document.createElement("a");
-        a.href=fileUrl;
-        a.download=fileName;
-        document.body.appendChild(a);
-        a.click();
+    const contentType = 'image/png';
+    const b64Data = dataURL;
+    const blob = b64toBlob(b64Data, contentType); // base64 -> blob
+    const blobUrl = URL.createObjectURL(blob); 
+    const img = document.createElement('img');
+    img.src = blobUrl;
+    
+    // const downloadFile = (fileUrl, fileName) =>{
+    //     const a = document.createElement("a");
+    //     a.href=fileUrl;
+    //     a.download=fileName;
+    //     document.body.appendChild(a);
+    //     a.click();
       };
+
+
+       
+
+       
 
     //downloadFile(memeUrl, "ddddd.jpg");
     //URL.revokeObjectURL(memeUrl);
@@ -308,7 +329,6 @@ const capture =() =>{
 
 
     // screenShotAnchor.click();
-};
 
 screenShotAnchor.addEventListener("click", capture);
 
