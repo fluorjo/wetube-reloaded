@@ -190,6 +190,7 @@ export const createComment = async (req, res) => {
 
 export const getMemeUpload = (req, res)=>{
     return res.render("meme",{pageTitle:"Meme Maker "});
+};
 // };
 // export const postMemeUpload = async(req, res)=>{
 //     const {
@@ -210,15 +211,15 @@ export const getMemeUpload = (req, res)=>{
 //             memeUrl:isHeroku ? meme[0].location.replace(/[\\]/g, "/") : meme[0].path.replace(/[\\]/g, "/"),
 //             owner:_id,
 //             hashtags: Video.formatHashtags(hashtags),
+// //     });
+//     const user = await User.findById(_id);
+//     user.videos.push(newVideo._id);
+//     user.save();
+//         return res.redirect("/");
+//     } catch(error){
+//         console.log(error);
+//         return res.status(400).render("upload",{pageTitle:"Upload video",errorMessage: error._message,
 //     });
-    const user = await User.findById(_id);
-    user.videos.push(newVideo._id);
-    user.save();
-        return res.redirect("/");
-    } catch(error){
-        console.log(error);
-        return res.status(400).render("upload",{pageTitle:"Upload video",errorMessage: error._message,
-    });
-    }
-    //promise:저장될 때까지 기다린다. 
-};
+//     }
+//     //promise:저장될 때까지 기다린다. 
+// };
