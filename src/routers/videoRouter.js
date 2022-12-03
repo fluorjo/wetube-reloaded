@@ -1,6 +1,6 @@
 import express from "express";
 
-import {watch, getEdit,postEdit,getUpload,postUpload,getMemeUpload,postMemeUpload,deleteVideo,memeMaker} from "../controllers/videoController";
+import {watch, getEdit,postEdit,getUpload,postUpload,getMemeUpload,deleteVideo} from "../controllers/videoController";
 import { protectorMiddleware,videoUpload,memeUpload } from "../middlewares";
 const  videoRouter=express.Router() ;
 
@@ -26,9 +26,9 @@ videoRouter
 .route("/:id([0-9a-f]{24})/memeMaker")
 .all(protectorMiddleware)
 .get(getMemeUpload)
-.post(memeUpload.single([
-    {name:"meme",maxCount:1}
-]),postMemeUpload);
+// .post(memeUpload.single([
+//     {name:"meme",maxCount:1}
+// ]),postMemeUpload);
 
 
 export default videoRouter;

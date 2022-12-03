@@ -8,6 +8,6 @@ const memeSchema = new mongoose.Schema({
   createdAt: { type: Date, required: true, default: Date.now },
 });
 
-const Meme = mongoose.model("Meme", memeSchema);
+// const Meme = mongoose.model("Meme", memeSchema);
 
 export default Meme;

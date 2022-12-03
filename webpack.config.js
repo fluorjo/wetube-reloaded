@@ -9,9 +9,9 @@ module.exports={
         videoPlayer: BASE_JS + "videoPlayer.js",
         recorder: BASE_JS + "recorder.js",
         commentSection: BASE_JS + "commentSection.js",
-        // videoPlayer2: BASE_JS + "videoPlayer2.js",
-        // videoProfilePopup: BASE_JS + "videoProfilePopup.js",
-        // memeMaker: BASE_JS + "memeMaker.js",
+        videoPlayer2: BASE_JS + "videoPlayer2.js",
+        videoProfilePopup: BASE_JS + "videoProfilePopup.js",
+        memeMaker: BASE_JS + "memeMaker.js",
     },
     plugins: [
         new MiniCssExtractPlugin({

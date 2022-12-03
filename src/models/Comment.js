@@ -4,7 +4,7 @@ const commentSchema = new mongoose.Schema({
   text: { type: String, required: true },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
   video: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Video" },
-  meme: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Meme" },
+  // meme: { type: mongoose.Schema.Types.ObjectId, required: false, ref: "Meme" },
   createdAt: { type: Date, required: true, default: Date.now },
 });
 
