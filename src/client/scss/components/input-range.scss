@@ -1,6 +1,6 @@
 input[type="range"] {
     overflow: hidden;
-    height: 30px;
+    height: 15px;
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
@@ -16,15 +16,17 @@ input[type="range"]::-webkit-slider-runnable-track {
     height: 100%;
     cursor: pointer;
     border-radius: 5px;
-    border: 2px solid #ff96ab;
+    border: 2px solid #ffffff;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 30px;
-    height: 30px;
-    background: #ff494f;
-    box-shadow: 1px 1px 7px #d16a6e;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+
+    background: #ffffff;
+    box-shadow: 1px 1px 7px #ffffff;
     cursor: pointer;
-    box-shadow: -100vw 0 0 100vw #ff96ab;
+    box-shadow: -100vw 0 0 100vw #ffffff;
 }
