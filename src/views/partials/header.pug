@@ -1,11 +1,14 @@
 header
     a(href="/").header__logo
-        i.fab.fa-youtube
+        //- i.fas.fa-trowel
+        img(src="./uploads/avatars/50a03aad926b58db3755b5254073df04", frameborder="0",width=50) 
+
     nav
         ul
             li
                 a(href="/search")
                     i.fas.fa-search
+
             if loggedIn
                 li
                     a(href="/videos/upload") Upload Video

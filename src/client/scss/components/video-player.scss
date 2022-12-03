@@ -14,12 +14,13 @@
   bottom: 120px !important;
 }
 
-
+#videoContainer2{
+  position: relative;
+}
 
 #videoContainer,#videoContainer2 {
     
     width: 100%;
-    top:0px;
 
     video {
       width: 100%;

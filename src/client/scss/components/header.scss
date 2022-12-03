@@ -1,5 +1,5 @@
 header {
-    background-color: rgb(6, 255, 118);
+    background-color: $bg;
 
     padding: 20px 50px;
     position: sticky;
@@ -9,7 +9,7 @@ header {
     justify-content: space-between;
     align-items: center;
     .header__logo {
-      color: $red;
+      // color: $red;
       font-size: 38px;
     }
     ul {
