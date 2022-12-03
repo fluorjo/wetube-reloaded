@@ -29,7 +29,7 @@ video.volume = volumeValue;
 const handlePlayClick = (e) => {
   if (video.paused) {
     video.play();
-  } else {
+    } else {
     video.pause();
   }
   playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
@@ -155,8 +155,8 @@ const  handleMouseLeave= ()=>{
 
 const  handleEnded= ()=>{
     const {id} = videoContainer.dataset;
-    fetch(`/api/videos/${id}/view`,{method:"POST",
-});
+    fetch(`/api/videos/${id}/view`,{method:"POST",});
+    console.log(id);
 };
 
 playBtn.addEventListener("click", handlePlayClick);
@@ -244,3 +244,5 @@ window.onstorage = event => {
     location.reload();
   };
    
+const {id} = videoContainer.dataset;
+console.log(id);

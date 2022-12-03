@@ -8,6 +8,7 @@
 */
 
 const saveBtn = document.getElementById("save");
+const pinBtn = document.getElementById("pin");
 const textInput = document.getElementById("text");
 const fileInput = document.getElementById("file");
 const eraserBtn = document.getElementById("eraser-btn");
@@ -156,7 +157,7 @@ function onSaveClick() {
   a.download = "myDrawing.png";
   a.click();
   //<a href="" download ~/>
-}
+};
 
 canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
@@ -179,3 +180,16 @@ eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
 
 saveBtn.addEventListener("click", onSaveClick);
+
+
+function onPinClick() {
+  const url = canvas.toDataURL();
+  //base64로 인코딩돼있다.
+  const a = document.createElement("a");
+  //만들어진 이미지 url로 바로 링크한다. 
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
+  //<a href="" download ~/>
+};
+pinBtn.addEventListener("click", onPinClick);
