@@ -165,7 +165,7 @@ export const postEdit= async(req,res)=>{
     body:{name, email, username, location}, 
     file,
   }= req;
-  //console.log("path:", path);
+  console.log("path:", path);
   //const id = req.session.user.id
   const updatedUser = await User.findByIdAndUpdate(
     _id,
