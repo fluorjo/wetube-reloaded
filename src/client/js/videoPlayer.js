@@ -258,6 +258,11 @@ window.onstorage = event => {
 const screenShot = document.getElementById("screenShot");
 const screenShotAnchor = screenShot.querySelector("a");
 
+const dddd =()=>{
+    console.log('23123');
+};
+
+
 // const submitScreenShot = async(event) =>{
 //     event.preventDefault();
 
@@ -292,13 +297,14 @@ function b64toBlob(b64Data, contentType = '', sliceSize = 512) {
     a.click();
   };
 const capture =() =>{
+    console.log('asdqwe');
     const canvas = document.createElement("canvas");
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
     let dataURL = canvas.toDataURL("image/png");
-//    screenShotAnchor.href = dataURL;
+    screenShotAnchor.href = dataURL;
 
     const contentType = 'image/png';
     const b64Data = dataURL;
@@ -340,3 +346,5 @@ const asdf = ()=>{
     console.log('asdda');
 };
 userAvatar.addEventListener("click", asdf);
+screenShot.addEventListener("click", dddd);
+screenShotAnchor.addEventListener("click", dddd);
