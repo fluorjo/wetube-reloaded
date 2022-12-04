@@ -120,8 +120,6 @@ const handleStickScreen =() =>{
         videoContainer.classList.remove('relativeclass');
         videoContainer.classList.add('stickyclass');
         stickScreenIcon.classList = "fas fa-thumbtack"; 
-     
-
 
     } else{
         videoContainer.classList.remove('stickyclass');
@@ -336,4 +334,9 @@ const capture =() =>{
 
 
 screenShotAnchor.addEventListener("click", capture);
+const userAvatar = document.getElementById("userAvatar");
 
+const asdf = ()=>{
+    console.log('asdda');
+};
+userAvatar.addEventListener("click", asdf);
