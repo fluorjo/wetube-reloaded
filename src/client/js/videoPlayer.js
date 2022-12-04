@@ -4,9 +4,12 @@ const svsrc=vsrc.split('/');
 const ssvsrc=svsrc.splice(3,1);
 const final=svsrc.join("/");
 
+
+
 if(svsrc[3]==='uploads'){
     video.src=final;
-}
+};
+
 
 //if(isHeroku){
 //    video.src=video.fileUrl
@@ -41,6 +44,8 @@ let controlsTimeout = null;
 let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
+
+
 
 const handlePlayClick = (e) => {
   if (video.paused) {
@@ -234,8 +239,8 @@ const handleDivideScreen =(event) =>{
     const vc= document.getElementById("videoContainer2");
     if(vc.classList[1]==='blind'){
         vc.classList.remove('blind');
+
     }else{
-        console.log(event);
         vc.classList.add('blind');
     }
 };
@@ -264,22 +269,17 @@ second_video.src=finalUrl;
 
 
 //-----로컬스토리지에 변화 있으면 새로고침---//
-$(document).ready(function(){
-    console.log('sdd');
- });
 
-window.onstorage = (event) => { 
-//    location.reload();
-    $('#')
+// window.onstorage = (event) => { 
+// //    location.reload();
+//     const vc= document.getElementById("videoContainer2");
+//     console.log(vc);
+//     setTimeout(function(){
+//         vc.classList.remove('blind');
+//     },500);
+//     console.log(vc);
 
-    const vc= document.getElementById("videoContainer2");
-    console.log(vc);
-    setTimeout(function(){
-        vc.classList.remove('blind');
-    },500);
-    console.log(vc);
-
-};
+// };
 
 
 

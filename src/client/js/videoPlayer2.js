@@ -217,12 +217,15 @@ Object.defineProperty(a,'b',{
     }
 });
 
+window.onstorage = (event) => { 
 
 const secondVideoUrl =localStorage.getItem('secondVideo');
 arrayUrl=secondVideoUrl.split('/');
 finalUrl=`/${arrayUrl[5]}/${arrayUrl[6]}/${arrayUrl[7]}`;
 const second_video=document.getElementById("2vid");
 second_video.src=finalUrl;
+};
+
 // console.log(secondVideoUrl);
 // console.log(arrayUrl);
 // console.log(finalUrl);

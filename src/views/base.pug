@@ -11,11 +11,8 @@ html(lang="ko")
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
         link(rel="favicon" href="../../icon.ico")
-        script(src="/static/js/jquery1.js")
-        script(src="/static/js/jquery2.js")
-
-
-
+        
+        
     body
         if messages.error 
             +message("error",messages.error)
@@ -27,5 +24,6 @@ html(lang="ko")
         main
             block content
         include partials/footer.pug
+    script(src="http://code.jquery.com/jquery-3.5.1.min.js", type="text/javascript")
     script(src="/static/js/main.js") 
     block scripts                                               
