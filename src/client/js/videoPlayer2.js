@@ -228,7 +228,5 @@ second_video.src=finalUrl;
 // console.log(finalUrl);
 //------------------------------//
 
-window.onstorage = event => { 
-    location.reload();
-  };
+
    

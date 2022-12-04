@@ -1,4 +1,20 @@
 const video = document.querySelector("video");
+const vsrc=video.src;
+const svsrc=vsrc.split('/');
+const ssvsrc=svsrc.splice(3,1);
+const final=svsrc.join("/");
+
+if(svsrc[3]==='uploads'){
+    video.src=final;
+}
+
+//if(isHeroku){
+//    video.src=video.fileUrl
+//} else{
+//    video.src=`/${video.fileUrl}`
+//    video.src='fsadfae'
+//};
+
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
 
@@ -208,6 +224,9 @@ video.addEventListener("click", handlePlayClick);
 
 
 const divideBtn = document.getElementById("loadVideoAnchor");
+//const fullScreenIcon = fullScreenBtn.querySelector("i");
+
+//const divideBtn = divide.querySelector("i");
 
 const videoContainer2 = document.getElementById("videoContainer2");
 
@@ -216,11 +235,8 @@ const handleDivideScreen =(event) =>{
     if(vc.classList[1]==='blind'){
         vc.classList.remove('blind');
     }else{
-        event.preventDefault();
         console.log(event);
-
         vc.classList.add('blind');
-
     }
 };
 
@@ -248,10 +264,24 @@ second_video.src=finalUrl;
 
 
 //-----로컬스토리지에 변화 있으면 새로고침---//
+$(document).ready(function(){
+    console.log('sdd');
+ });
 
-window.onstorage = event => { 
-    location.reload();
-  };
+window.onstorage = (event) => { 
+//    location.reload();
+    $('#')
+
+    const vc= document.getElementById("videoContainer2");
+    console.log(vc);
+    setTimeout(function(){
+        vc.classList.remove('blind');
+    },500);
+    console.log(vc);
+
+};
+
+
 
 //------------스크린샷----------------//
 const screenShot = document.getElementById("screenShot");
