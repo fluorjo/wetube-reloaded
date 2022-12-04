@@ -19,7 +19,11 @@ block content
                         i.fas.fa-volume-up
                 div
                     span#fullScreen
+                        i.fas.fa-expand 
+                div
+                    span#divide
                         i.fas.fa-expand
+                
                 div
                     span#stickScreen
                         i.fas.fa-thumbtack
@@ -47,8 +51,6 @@ block content
                         i.fas.fa-thumbtack
 
     div.video__data.data1
-        span#screenShot
-            a(id='screenShotAnchor') asdadw
         p.video__title=video.title
         div#ownerData
             img(id='userAvatar' src=`/${video.owner.avatarUrl}`, alt="")
@@ -57,6 +59,8 @@ block content
         div#videoData
             small #{video.meta.views} views   
             small.video__createdAt=new Date(video.createdAt).toLocaleDateString("en-us", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+        div#screenShot
+            a(id='screenShotAnchor') ScreenShot
 
 
         if String(video.owner._id) === String(loggedInUser._id)
@@ -65,7 +69,6 @@ block content
             onclick="window.open(this.href,'insert','width=450,height=450'); return false;"
             target="_parent"
             ) Load Video
-            i.fas.fa-table-columns 
             
             a(href=`${video.id}/edit`) Edit Video &rarr;
             br

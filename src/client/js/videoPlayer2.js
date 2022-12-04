@@ -12,7 +12,6 @@ const muteBtn = videoContainer2.querySelector("#mute");
 const muteBtnIcon = muteBtn.querySelector("i");
 
 const currentTime = videoContainer2.querySelector("#currentTime");
-console.log(currentTime);
 const totalTime = videoContainer2.querySelector("#totalTime");
 const volumeRange = videoContainer2.querySelector("#volume");
 const timeline = videoContainer2.querySelector("#timeline");
@@ -206,25 +205,6 @@ const handleVideoEnded = () => {
 // window.addEventListener("keydown",(event) =>spaceControl(event));
 
 video.addEventListener("click", handlePlayClick);
-
-
-const divideBtn = document.getElementById("divideScreen");
-const divideBtnIcon = divideBtn.querySelector("i");
-
-const handleDivideScreen =() =>{
-    const vc= document.querySelectorAll("#videoContainer");
-    if(vc[1].classList[1]==='blind'){
-        vc[1].classList.remove('blind');
-        divideBtnIcon.classList = "fas fa-display"; 
-    }else{
-        vc[1].classList.add('blind');
-        divideBtnIcon.classList = "fas fa-table-columns"; 
-    }
- 
-        console.log(vc[1].classList[1]);
-};
-
-divideBtn.addEventListener("click", handleDivideScreen);
 
 //-----------------------------//
 const a={};

@@ -1,5 +1,3 @@
-
-
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -209,20 +207,21 @@ window.addEventListener("keydown",(event) =>{
 video.addEventListener("click", handlePlayClick);
 
 
-const divideBtn = document.getElementById("divideScreen");
-const divideBtnIcon = divideBtn.querySelector("i");
+const divideBtn = document.getElementById("loadVideoAnchor");
 
-const handleDivideScreen =() =>{
-    const vc= document.querySelectorAll("#videoContainer");
-    if(vc[1].classList[1]==='blind'){
-        vc[1].classList.remove('blind');
-        divideBtnIcon.classList = "fas fa-display"; 
+const videoContainer2 = document.getElementById("videoContainer2");
+
+const handleDivideScreen =(event) =>{
+    const vc= document.getElementById("videoContainer2");
+    if(vc.classList[1]==='blind'){
+        vc.classList.remove('blind');
     }else{
-        vc[1].classList.add('blind');
-        divideBtnIcon.classList = "fas fa-table-columns"; 
-    }
+        event.preventDefault();
+        console.log(event);
 
-        console.log(vc[1].classList[1]);
+        vc.classList.add('blind');
+
+    }
 };
 
 divideBtn.addEventListener("click", handleDivideScreen);
@@ -257,11 +256,6 @@ window.onstorage = event => {
 //------------스크린샷----------------//
 const screenShot = document.getElementById("screenShot");
 const screenShotAnchor = screenShot.querySelector("a");
-
-const dddd =()=>{
-    console.log('23123');
-};
-
 
 // const submitScreenShot = async(event) =>{
 //     event.preventDefault();
@@ -345,6 +339,6 @@ const userAvatar = document.getElementById("userAvatar");
 const asdf = ()=>{
     console.log('asdda');
 };
-userAvatar.addEventListener("click", asdf);
-screenShot.addEventListener("click", dddd);
-screenShotAnchor.addEventListener("click", dddd);
+screenShot.addEventListener("click", asdf);
+screenShotAnchor.addEventListener("click", asdf);
+console.log(screenShot);
