@@ -30,8 +30,7 @@ const volumeRange = document.getElementById("volume");
 const timeline = document.getElementById("timeline");
 const fullScreenBtn = document.getElementById("fullScreen");
 const fullScreenIcon = fullScreenBtn.querySelector("i");
-const stickScreenBtn = document.getElementById("stickScreen");
-const stickScreenIcon = stickScreenBtn.querySelector("i");
+
 
 
 const videoContainer = document.getElementById("videoContainer");
@@ -134,15 +133,29 @@ const handleFullScreen =() =>{
         fullScreenIcon.classList = "fas fa-compress";
     }
 };
+const stickScreenBtn = document.getElementById("stickScreen");
+const stickScreenIcon = stickScreenBtn.querySelector("i");
+const bigContainer= document.getElementById("bigContainer");
+
 const handleStickScreen =() =>{
-    if(videoContainer.classList[0]==='relativeclass'){
-        videoContainer.classList.remove('relativeclass');
-        videoContainer.classList.add('stickyclass');
-        stickScreenIcon.classList = "fas fa-thumbtack"; 
+    console.log(bigContainer.classList[0]);
+    if(bigContainer.classList[0]===undefined){
+        bigContainer.classList.add('stickyclass');
+        stickScreenBtn.classList.remove('material-symbols-outlined');
+        stickScreenBtn.innerText='';
+        const ii=document.createElement('i');
+        stickScreenBtn.appendChild(ii);
+        const stickScreenIcon = stickScreenBtn.querySelector("i");
+        stickScreenIcon.classList='fas fa-thumbtack'
 
     } else{
-        videoContainer.classList.remove('stickyclass');
-        videoContainer.classList.add('relativeclass');
+        bigContainer.classList.remove('stickyclass');
+        const stickScreenIcon = stickScreenBtn.querySelector("i");
+        stickScreenBtn.removeChild(stickScreenIcon);
+        stickScreenBtn.classList.add('material-symbols-outlined');
+        stickScreenBtn.innerText='push_pin';
+
+
         stickScreenIcon.classList = "fas fa-circle-up";  
 
     }
