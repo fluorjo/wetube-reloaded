@@ -52,10 +52,6 @@ block content
         p.video__title=video.title
         
         div#ActionDiv    
-            div#ownerData
-                img(id='userAvatar' src=`/${video.owner.avatarUrl}`, alt="")
-                small.video__owner 
-                    a(href=`/users/${video.owner._id}`)=video.owner.name
             div#screenShot
                 a(id='screenShotAnchor') ScreenShot
 
@@ -70,6 +66,10 @@ block content
                 br
                 a(href=`${video.id}/delete`) Delete Video &rarr;
                         div#loadVideo 
+        div#ownerData
+            img(id='userAvatar' src=`/${video.owner.avatarUrl}`, alt="")
+            small.video__owner 
+                a(href=`/users/${video.owner._id}`)=video.owner.name
         div#videoData
             small #{video.meta.views} views   
             small.video__createdAt=new Date(video.createdAt).toLocaleDateString("en-us", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})

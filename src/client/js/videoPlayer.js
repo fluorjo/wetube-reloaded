@@ -234,16 +234,24 @@ const divideBtn = document.getElementById("loadVideoAnchor");
 //const divideBtn = divide.querySelector("i");
 
 const videoContainer2 = document.getElementById("videoContainer2");
-
+const vc= document.getElementById("videoContainer2");
 const handleDivideScreen =(event) =>{
-    const vc= document.getElementById("videoContainer2");
+
     if(vc.classList[1]==='blind'){
         vc.classList.remove('blind');
 
-    }else{
-        vc.classList.add('blind');
     }
+    // else{
+    //     vc.classList.add('blind');
+    // }
 };
+
+if(vc.classList[1]!=='blind'){
+    vc.classList.remove('blind');
+
+}
+
+
 
 divideBtn.addEventListener("click", handleDivideScreen);
 

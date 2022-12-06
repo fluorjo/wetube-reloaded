@@ -84,7 +84,6 @@
   };
   #bigContainer{
     width: 100% !important;
-    background-color: blueviolet;
     display: flex;
     justify-content: space-between;
     flex-direction: row; 
@@ -103,4 +102,21 @@
 #stickScreen{
   display: flex;
   justify-content: center;
+}
+#ActionDiv{
+  display: flex;
+}
+#DataDiv{
+  display: grid;
+  grid-template-columns: 1fr 0.4fr 1fr auto;
+
+}
+
+#ownerData{
+
+}
+
+#videoData{
+  background-color: rgb(255, 208, 122);
+  border-radius: 25px;
 }
