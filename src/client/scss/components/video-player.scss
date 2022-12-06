@@ -106,17 +106,22 @@
 #ActionDiv{
   display: grid;
   grid-template-columns: 1.5fr 0.4fr 0.4fr 0.4fr 0.4fr;
-  a,#screenShot{
+
+  div:not(#ownerData){
     border: 1px solid black;
     border-radius: 25px;
+    align-items: center;
+    text-align: center;
+    justify-content : center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content : center;
 
   }
 }
 #screenShotAnchor,#ownerAnchor{
   border: 0 !important;
-
-}
-#DataDiv{
 
 }
 

@@ -60,15 +60,16 @@ block content
                 a(id='screenShotAnchor') ScreenShot
 
             if String(video.owner._id) === String(loggedInUser._id)
-                a(id='loadVideoAnchor' 
-                href=`/users/loadVideoPopup/${video.owner._id}`
-                onclick="window.open(this.href,'insert','width=450,height=450'); return false;"
-                target="_parent"
-                ) Add Video
-                
-                a(href=`${video.id}/edit`) Edit Video &rarr;
-            
-                a(href=`${video.id}/delete`) Delete Video &rarr;
+                div
+                    a(id='loadVideoAnchor' 
+                    href=`/users/loadVideoPopup/${video.owner._id}`
+                    onclick="window.open(this.href,'insert','width=450,height=450'); return false;"
+                    target="_parent"
+                    ) Add Video
+                div                
+                    a(href=`${video.id}/edit`) Edit Video &rarr;
+                div
+                    a(href=`${video.id}/delete`) Delete Video &rarr;
         div#videoData
             small #{video.meta.views} views   
             small.video__createdAt=new Date(video.createdAt).toLocaleDateString("en-us", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
