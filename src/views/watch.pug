@@ -55,7 +55,7 @@ block content
             div#ownerData
                 img(id='userAvatar' src=`/${video.owner.avatarUrl}`, alt="")
                 small.video__owner 
-                    a(href=`/users/${video.owner._id}`)=video.owner.name
+                    a(id="ownerAnchor" href=`/users/${video.owner._id}`)=video.owner.name
             div#screenShot
                 a(id='screenShotAnchor') ScreenShot
 
@@ -67,9 +67,8 @@ block content
                 ) Add Video
                 
                 a(href=`${video.id}/edit`) Edit Video &rarr;
-                br
+            
                 a(href=`${video.id}/delete`) Delete Video &rarr;
-                        div#loadVideo 
         div#videoData
             small #{video.meta.views} views   
             small.video__createdAt=new Date(video.createdAt).toLocaleDateString("en-us", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})

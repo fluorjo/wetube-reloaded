@@ -104,17 +104,22 @@
   justify-content: center;
 }
 #ActionDiv{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.5fr 0.4fr 0.4fr 0.4fr 0.4fr;
+  a,#screenShot{
+    border: 1px solid black;
+    border-radius: 25px;
+
+  }
+}
+#screenShotAnchor,#ownerAnchor{
+  border: 0 !important;
+
 }
 #DataDiv{
-  display: grid;
-  grid-template-columns: 1fr 0.4fr 1fr auto;
 
 }
 
-#ownerData{
-
-}
 
 #videoData{
   background-color: rgb(255, 208, 122);
